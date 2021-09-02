@@ -2,6 +2,7 @@
 /*--------------Global Styles---------------*/
 html {
   font-family: var(--paragraph-font);
+  box-sizing: border-box;
 }
 
 body {
@@ -25,6 +26,33 @@ a {
   text-decoration: none;
 }
 
+label {
+  font-family: var(--paragraph-font);
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 20%;
+  left: 5%; 
+  transition: bottom 0.4s ease 0s;
+}
+
+input:focus + label {
+  bottom: 100%;
+}
+
+input {
+  position: relative;
+  background-color: var(--light-color);
+  font-size: 1.2rem;
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+}
+
+.input_container {
+  position: relative;
+}
+
 .image_container {
   border-radius: 20px;
 }
@@ -34,8 +62,8 @@ nav > ul {
 }
 
 button {
-    background-color: unset;
-    border: none;
+  background-color: unset;
+  border: none;
 }
 
 .hero {
@@ -70,53 +98,16 @@ header {
 }
 
 .menu_button {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    background-color: var(--color-1);
-    border-radius: 50%;
-    height: 44px;
-    width: 44px;
-    right: 10px;
-    bottom: 10px;
-    cursor: pointer;
-  }
-  
-  .hamburger_menu_bars {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    border-radius: 4px;
-    width: 70%;
-    height: 4px;
-    margin: 5px auto;
-    background-color: var(--light-color);
-  }
-  
-  #top-bun, #burger, #bottom-bun {
-    transform: rotate(0deg);
-    transition: transform 0.4s ease 0s;
-}
-
-  #top-bun {
-      transform: rotate(0deg);
-      top: 6px; 
-  }
-
-  #burger {
-    transform: rotate(0deg);
-    top: 16px; 
-}
-
-#bottom-bun {
-    transform: rotate(0deg);
-    top: 26px; 
-}
-
-.search_button {
-    background: url("../icons/search.svg") center / 44px 44px no-repeat;
-    height: 44px;
-    width: 44px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-1);
+  border-radius: 50%;
+  height: 44px;
+  width: 44px;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
 }
 
 .mobile_nav {
@@ -130,8 +121,23 @@ header {
   align-items: center;
   justify-content: center;
   left: 10vw;
-  bottom: 100%;
-  transition: bottom 0.4s ease 0s
+  bottom: -100%;
+  transition: bottom 0.4s ease 0s;
+}
+
+.nav_container.menu_open > .mobile_nav {
+  bottom: 10%;
+}
+
+.nav_container.menu_open > .menu_button #top-bun,
+.nav_container.menu_open > .menu_button #burger {
+  top: 15px;
+  transform: rotate(45deg);
+}
+
+.nav_container.menu_open > .menu_button #bottom-bun {
+  top: 15px;
+  transform: rotate(-45deg);
 }
 
 .header_link_mobile {
@@ -143,6 +149,64 @@ header {
   font-size: 1.5rem;
   padding: 10px;
   margin: 20px auto;
+}
+
+.hamburger_menu_bars {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  width: 70%;
+  height: 4px;
+  margin: 5px auto;
+  background-color: var(--light-color);
+}
+
+#top-bun,
+#burger,
+#bottom-bun {
+  transform: rotate(0deg);
+  transition: transform 0.4s ease 0s;
+}
+
+#top-bun {
+  transform: rotate(0deg);
+  top: 6px;
+}
+
+#burger {
+  transform: rotate(0deg);
+  top: 16px;
+}
+
+#bottom-bun {
+  transform: rotate(0deg);
+  top: 26px;
+}
+
+.search_button {
+  background: url("../icons/search.svg") center / 44px 44px no-repeat;
+  height: 44px;
+  width: 44px;
+}
+
+.search_input_overlay {
+  position: fixed;
+  height: 50vh;
+  width: 100vw;
+  background-color: var(--color-3);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 0vw;
+  bottom: 25vh;
+  transition: bottom 0.4s ease 0s;
+}
+
+.search_input_overlay.hide {
+  bottom: 100vh;
 }
 
 /*--------Logo--------*/

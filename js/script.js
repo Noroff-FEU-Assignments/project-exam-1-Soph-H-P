@@ -9,7 +9,6 @@ const socialMediaContainer = `
         <a href="https://www.snapchat.com/" ><img src="../icons/snapchat.svg" alt="snapchat icon"></a>
         <a href="https://www.twitter.com/" ><img src="../icons/twitter.svg" alt="twitter icon"></a>
     </div>
-
 `;
 
 const footerLinks = `
@@ -30,7 +29,6 @@ footer.innerHTML = socialMediaContainer + footerLinks;
 
 //Header
 let viewportWidth = window.innerWidth;
-// const isDesktop = () => (viewportWidth >= 800 ? true : false);
 let isDesktop = viewportWidth >= 800 ? true : false;
 
 const header = document.querySelector("header");
@@ -57,87 +55,116 @@ const headerNavDesktop = `
             <div class="search_container">
             <button class="search_button" aria-label="search button" ></button>
             
+            <div class="search_input_overlay overlay hide">
+                <div class="input_container">
+                    <input class="overlay" type="text" />
+                    <label class="overlay" for="search">Search...</label>
+                </div> 
+          </div>
         </div>
         </ul>
     </nav>
 `;
 
 const headerNavMobile = `
+<div class="nav_container">
     <button class="menu_button">
         <span class="hamburger_menu_bars" id="top-bun"></span>
         <span class="hamburger_menu_bars" id="burger"></span>
         <span class="hamburger_menu_bars" id="bottom-bun"></span>
     </button>
-    <nav class="mobile_nav">
+    <nav class="mobile_nav menu_overlay">
         <ul>
-            <a class="header_link_mobile" href="index.html">
-                <li>Home</li>
+            <a class="header_link_mobile menu_overlay" href="index.html">
+            <li>Home</li>
             </a>
-            <a class="header_link_mobile" href="about.html">
-                <li>About</li>
+            <a class="header_link_mobile menu_overlay" href="about.html">
+            <li>About</li>
             </a>
-            <a class="header_link_mobile" href="blog.html">
-                <li>Blog</li>
+            <a class="header_link_mobile menu_overlay" href="blog.html">
+            <li>Blog</li>
             </a>
-            <a class="header_link_mobile" href="contact.html">
-                <li>Contact</li>
+            <a class="header_link_mobile menu_overlay" href="contact.html">
+            <li>Contact</li>
             </a>
         </ul>
-        <div class="search_container">
-            <button class="search_button" aria-label="search button" ></button>
-            
+        <div class="search_container menu_overlay">
+            <button class="search_button" aria-label="search button"></button>
+            <div class="search_input_overlay overlay hide">
+                <div class="input_container">
+                    <input class="overlay" type="text" />
+                    <label class="overlay" for="search">Search...</label>
+                </div> 
+            </div>
         </div>
-        
     </nav>
+</div>
 `;
 
 window.addEventListener("resize", () => {
-  //   viewportWidth = window.innerWidth;
   const newViewportWidth = window.innerWidth;
   if (newViewportWidth >= 800 && viewportWidth < 800) {
     header.innerHTML = logo + headerNavDesktop;
     isDesktop = true;
     viewportWidth = newViewportWidth;
+    addSearchFunction();
   } else if (newViewportWidth < 800 && viewportWidth >= 800) {
     header.innerHTML = logo + headerNavMobile;
     isDesktop = false;
     viewportWidth = newViewportWidth;
     addBurgerFunctions();
+    addSearchFunction();
   }
 });
 
-isDesktop
-  ? (header.innerHTML = logo + headerNavDesktop)
-  : (header.innerHTML = logo + headerNavMobile);
+let menuOpen = false;
 
 const addBurgerFunctions = () => {
   //Show hide menu on click
   const hamburgerMenuButton = document.querySelector(".menu_button");
-  const mobileMenu = document.querySelector(".mobile_nav");
-  const topBun = document.querySelector("#top-bun");
-  const burgerBun = document.querySelector("#burger");
-  const bottomBun = document.querySelector("#bottom-bun");
-  let menuOpen = false;
+  const navContainer = document.querySelector(".nav_container");
 
-  hamburgerMenuButton.addEventListener("click", (event) => {
-    menuOpen = !menuOpen;
-    menuOpen
-      ? ((mobileMenu.style.bottom = "10%"),
-        (topBun.style.transform = "rotate(45deg)"),
-        (topBun.style.top = "15px"),
-        (burger.style.transform = "rotate(45deg)"),
-        (burger.style.top = "15px"),
-        (bottomBun.style.transform = "rotate(-45deg)"),
-        (bottomBun.style.top = "15px"))
-      : ((mobileMenu.style.bottom = "-100%"),
-        (topBun.style.transform = "rotate(0deg)"),
-        (topBun.style.top = "6px"),
-        (burger.style.transform = "rotate(0deg)"),
-        (burger.style.top = "16px"),
-        (bottomBun.style.transform = "rotate(0deg)"),
-        (bottomBun.style.top = "26px"));
+  hamburgerMenuButton.addEventListener("click", () => {
+    if (navContainer.classList.contains("menu_open")) {
+      navContainer.classList.remove("menu_open");
+    } else {
+      navContainer.classList.add("menu_open");
+    }
   });
 };
 
-//Search button
-const searchButton = document.querySelector(".search_button");
+const addSearchFunction = () => {
+  const searchButton = document.querySelector(".search_button");
+
+  searchButton.addEventListener("click", (e) => {
+    const overlay = e.explicitOriginalTarget.nextElementSibling;
+    if (overlay.classList.contains("hide")) {
+      overlay.classList.remove("hide");
+    } else {
+      overlay.classList.add("hide");
+    }
+  });
+};
+
+window.addEventListener("click", (e) => {
+  const target = e.target.classList;
+  const searchOverlay = document.querySelector(".search_input_overlay");
+  if (!target.contains("overlay") && !target.contains("search_button")) {
+    searchOverlay.classList.add("hide");
+  }
+  if (!isDesktop) {
+    const navContainer = document.querySelector(".nav_container");
+
+    if (
+      !target.contains("menu_overlay") &&
+      !target.contains("hamburger_menu_bars") &&
+      !target.contains("menu_button")
+    ) {
+      navContainer.classList.remove("menu_open");
+    }
+  }
+});
+
+isDesktop
+  ? ((header.innerHTML = logo + headerNavDesktop), addSearchFunction())
+  : ((header.innerHTML = logo + headerNavMobile), addBurgerFunctions(), addSearchFunction());

@@ -14,8 +14,9 @@
       href="https://fonts.googleapis.com/css2?family=Averia+Libre:wght@400;700&family=Quicksand:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/media_queries.css">
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/contact.css" />
+    <link rel="stylesheet" href="styles/media_queries.css" />
     <title>Contact | Bug Blog</title>
   </head>
 
@@ -25,23 +26,27 @@
       <div class="hero">
         <h1>Contact</h1>
       </div>
-      <div class="form_continer">
-        <label for="name">
-          Name
-          <input type="text" id="name" />
-        </label>
-        <label for="email">
-          Email
-          <input type="text" id="email" />
-        </label>
-        <label for="subject">
-          Subject
-          <input type="text" id="subject" />
-        </label>
-        <label for="message">
-          Message
-          <textarea id="message"></textarea>
-        </label>
+      <div class="form_container">
+        <div class="input_container">
+          <input type="text" id="name" required/>
+          <label for="name"> Name</label>
+        </div>
+
+        <div class="input_container">
+          <input type="email" id="email" required/>
+          <label for="email"> Email </label>
+        </div>
+
+        <div class="input_container">
+          <input type="text" id="subject" required/>
+          <label for="subject"> Subject</label>
+        </div>
+
+        <div class="input_container">
+          <textarea id="message" required></textarea>
+          <label for="message"> Message</label>
+        </div>
+
         <input type="submit" value="Send" class="send_button" />
       </div>
     </main>

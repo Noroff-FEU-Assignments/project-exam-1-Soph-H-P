@@ -10,6 +10,12 @@
   * {
     background-color: #b80f0f0a;
   }
+
+  .search_input_overlay {
+    height: 50vh;
+    width: 50vw;
+    left: 25vw;
+  }
 }
 
 @media (min-width: 800px) {
@@ -33,13 +39,16 @@
     margin: 0 5px;
   }
 
+  
+
   .search_button {
     margin-left: 1rem;
     filter: brightness(100);
+    cursor: pointer;
   }
 
   .search_button:hover {
-    filter: brightness(1.5) sepia(1) hue-rotate(170deg) saturate(6);
+    filter: brightness(5.2) sepia(1) hue-rotate(170deg) saturate(6);
   }
   .header_link_desktop {
     display: block;
