@@ -1,4 +1,12 @@
 :root {
-    --dark-font-color: #112735;
-  }
-  
+  --heading-font: "Averia Libre", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --paragraph-font: "Quicksand", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  --dark-color: #132023;
+  --light-color: #fafafa;
+  --color-1: #56c78f;
+  --color-2: #5cd1f7;
+  --color-3: #A670af;
+  --color-4: #3661bf;
+  --color-5: #37538c;
+  --color-6: #6d3d67;
+}

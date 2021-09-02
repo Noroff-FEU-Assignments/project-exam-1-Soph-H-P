@@ -1,1 +1,55 @@
 @import "./imports/variables.css";
+
+@media (min-width: 400px) {
+  * {
+    background-color: #03030307;
+  }
+}
+
+@media (min-width: 600px) {
+  * {
+    background-color: #b80f0f0a;
+  }
+}
+
+@media (min-width: 800px) {
+  * {
+    background-color: #dab12a15;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .desktop_nav ul {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+  }
+
+  .desktop_nav a {
+    padding: 5px;
+    margin: 0 5px;
+  }
+
+  .search_button {
+    margin-left: 1rem;
+    filter: brightness(100);
+  }
+
+  .search_button:hover {
+    filter: brightness(1.5) sepia(1) hue-rotate(170deg) saturate(6);
+  }
+  .header_link_desktop {
+    display: block;
+    list-style-type: none;
+    color: var(--light-color);
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
+  }
+
+  .header_link_desktop:hover {
+    color: var(--color-2);
+  }
+}
