@@ -15,10 +15,10 @@
   align-self: center;
 }
 
-.input_container > * {
+.form_container > .input_container > * {
   margin: 25px auto;
 }
 
-.input_container > input:valid + label {
-  bottom: 100%;
+.form_container > .input_container > input + label {
+  bottom: 50%;
 }

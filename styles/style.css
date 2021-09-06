@@ -1,6 +1,6 @@
 @import "./imports/variables.css";
 /*--------------Global Styles---------------*/
-html {
+* {
   font-family: var(--paragraph-font);
   box-sizing: border-box;
 }
@@ -10,7 +10,7 @@ body {
 }
 
 main {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -22,6 +22,14 @@ h2 {
   z-index: 1;
 }
 
+h2 {
+  color: var(--color-3);
+}
+
+h3 {
+  font-family: var(--heading-font);
+}
+
 a {
   text-decoration: none;
 }
@@ -31,7 +39,7 @@ label {
   font-size: 1.2rem;
   position: absolute;
   bottom: 20%;
-  left: 5%; 
+  left: 5%;
   transition: bottom 0.4s ease 0s;
 }
 
@@ -53,17 +61,29 @@ input {
   position: relative;
 }
 
-.image_container {
-  border-radius: 20px;
-}
-
 nav > ul {
   padding: 0px;
 }
 
 button {
-  background-color: unset;
   border: none;
+}
+
+.cta {
+  background-color: var(--color-1);
+  color: var(--light-color);
+  font-size: 1rem;
+  font-family: var(--heading-font);
+  text-align: center;
+  display: inline;
+  width: max-content;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.cta:active {
+  color: var(--color-1);
+  background-color: var(--light-color);
 }
 
 .hero {
@@ -71,7 +91,11 @@ button {
   background-color: var(--dark-color);
   color: var(--light-color);
   text-align: center;
-  padding: 50px;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: -50px;
 }
 
 .hero::before {
@@ -238,7 +262,14 @@ header {
 /*--------------Footer Styles---------------*/
 footer {
   background-color: var(--dark-color);
+  display: flex;
+  flex-direction: column;
   z-index: 1000;
+  text-align: center;
+}
+
+footer ul {
+  padding: 0px;
 }
 
 .footer_link {
@@ -258,4 +289,9 @@ footer {
   display: inline-block;
   height: 44px;
   width: 44px;
+  padding: 5px;
+}
+.social_media_icon img {
+  width: 100%;
+
 }
