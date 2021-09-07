@@ -24,19 +24,34 @@
     width: 50vw;
     left: 25vw;
   }
-
+  /*--------------Home page----------------*/
+  .found_a_bug_container {
+    grid-template-areas:
+      "title title"
+      "paragraph image"
+      "button button";
+  }
   /*--------------About page----------------*/
 
   .about_container {
     display: flow-root;
   }
 
-  .image_container {
+  .about_container .image_container {
     float: right;
     border-radius: 30px;
     margin: 0px 10px 10px 10px;
     width: 300px;
     height: 100%;
+  }
+  /*--------------Contact page----------------*/
+
+  .form_container {
+    padding: 50px 30px;
+  }
+
+  .form_container > .input_container {
+    width: 90%;
   }
 }
 
@@ -122,6 +137,11 @@
     padding-top: 100px;
   }
 
+  textarea {
+    width: 450px;
+    height: 200px;
+  }
+
   /*----Snail button----*/
 
   .cta {
@@ -159,11 +179,6 @@
   }
 
   .cta:hover.cta::after {
-    /* left: -50px;
-    height: 50px;
-    width: 200px;
-    background: url("../icons/snail.svg") center / 200px 200px no-repeat;
-    top: -10px; */
     left: -42px;
     height: 65px;
     width: 250px;
@@ -195,5 +210,15 @@
     justify-content: space-around;
     position: relative;
     z-index: 1;
+  }
+
+  /*--------------Contact page----------------*/
+  .form_container > .input_container {
+    width: 90%;
+  }
+
+  .form_container > .input_container > input,
+  .form_container > .input_container > textarea {
+    width: 100%;
   }
 }

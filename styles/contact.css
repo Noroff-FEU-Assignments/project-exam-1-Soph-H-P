@@ -3,11 +3,26 @@
 .form_container {
   background-color: var(--color-3);
   max-width: 500px;
-  margin: 20px auto;
-  padding: 30px;
+  margin: 0px auto 50px auto;
+  padding: 50px 10px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+textarea {
+  height: 200px;
+}
+
+.form_container > .input_container {
+  width: 95%;
+}
+
+.form_container > .input_container > input,
+.form_container > .input_container > textarea {
+  width: 100%;
 }
 
 .input_container {
@@ -19,6 +34,11 @@
   margin: 25px auto;
 }
 
-.form_container > .input_container > input + label {
-  bottom: 50%;
+.form_container > .input_container > input + label,
+.form_container > .input_container > textarea + label {
+  top: -1.6rem;
+}
+
+button {
+  align-self: center;
 }
