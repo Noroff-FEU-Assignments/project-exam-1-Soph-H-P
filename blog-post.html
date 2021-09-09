@@ -4,18 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="A blog that bridges the gap between bugs and bugs"
-    />
+    <meta name="description" content="A blog that bridges the gap between bugs and bugs" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Averia+Libre:wght@400;700&family=Quicksand:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Averia+Libre:wght@400;700&family=Quicksand:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/media_queries.css">
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/blog-post.css" />
+    <link rel="stylesheet" href="styles/media_queries.css" />
     <title>Blog Post | Bug Blog</title>
   </head>
 
@@ -23,15 +21,59 @@
     <header></header>
     <main>
       <div class="hero">
-        <h1>Blog Post Title</h1>
+        <h1 class="blog_post_title">Blog Post Title</h1>
       </div>
-      <div class="featured_image_container"></div>
-      <h2 class="blog_post_title"></h2>
+      <div class="blog_post_featured_image_container"></div>
+      <h2 class="blog_post_category"></h2>
       <p class="blog_post_date"></p>
-      <div class="blog_post_content"></div>
-      <div class="carousel_container">Loading...</div>
+      <div class="blog_post">
+        <div class="author_info"></div>
+        <div class="blog_post_content"></div>
+      </div>
+      <div class="carousel_container">
+        <h2 class="carousel_title">Loading...</h2>
+        <div class="sliding_posts">
+          <button class="left_arrow arrow"></button>
+          <div class="sliding_area">
+            <div class="post_preview">
+              <div class="loading_featured_image">
+                <img class="lil_bug loading" src="icons/bug.svg" alt="" />
+                <img class="magnifying_glass loading" src="icons/search.svg" alt="" />
+              </div>
+            </div>
+            <div class="post_preview">
+              <div class="loading_featured_image">
+                <img class="lil_bug loading" src="icons/bug.svg" alt="" />
+                <img class="magnifying_glass loading" src="icons/search.svg" alt="" />
+              </div>
+            </div>
+            <div class="post_preview">
+              <div class="loading_featured_image">
+                <img class="lil_bug loading" src="icons/bug.svg" alt="" />
+                <img class="magnifying_glass loading" src="icons/search.svg" alt="" />
+              </div>
+            </div>
+            <div class="post_preview">
+              <div class="loading_featured_image">
+                <img class="lil_bug loading" src="icons/bug.svg" alt="" />
+                <img class="magnifying_glass loading" src="icons/search.svg" alt="" />
+              </div>
+            </div>
+            <div class="post_preview">
+              <div class="loading_featured_image">
+                <img class="lil_bug loading" src="icons/bug.svg" alt="" />
+                <img class="magnifying_glass loading" src="icons/search.svg" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <button class="right_arrow arrow"></button>
+        </div>
+      </div>
     </main>
     <footer></footer>
+    <script src="js/components/carousel.js"></script>
+    <script src="js/blog-post.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>
