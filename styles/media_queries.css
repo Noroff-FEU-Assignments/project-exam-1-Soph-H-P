@@ -2,13 +2,30 @@
 
 @media (min-width: 400px) {
   * {
-    background-color: #03030307;
+    /* background-color: #03030307; */
+  }
+
+}
+
+@media (min-width: 500px) {
+  * {
+    /* background-color: #30a17607; */
+  }
+
+  .menu_button {
+    top: 10px;
+  }
+
+  .blog_post {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
   }
 }
 
 @media (min-width: 600px) {
   * {
-    background-color: #b80f0f0a;
+    /* background-color: #b80f0f0a; */
   }
 
   h1 {
@@ -18,6 +35,8 @@
   h2 {
     font-size: 2rem;
   }
+
+  
 
   .search_input_overlay {
     height: 50vh;
@@ -53,11 +72,29 @@
   .form_container > .input_container {
     width: 90%;
   }
+
+/*--------------Contact page----------------*/
+  figure.wp-block-image.size-large.full_screen_view,
+figure.wp-block-image.size-full.full_screen_view {
+  /* width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  margin: 0 auto;
+  background-color: var(--modal-color); */
+  padding: 50px;
+}
+
+figure.wp-block-image.size-large,
+figure.wp-block-image.size-full {
+  width: 70%;
+}
 }
 
 @media (min-width: 800px) {
   * {
-    background-color: #dab12a15;
+    /* background-color: #dab12a15; */
   }
 
   h1 {

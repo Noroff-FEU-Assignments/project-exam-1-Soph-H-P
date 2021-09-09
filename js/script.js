@@ -125,11 +125,9 @@ const addBurgerFunctions = () => {
   const navContainer = document.querySelector(".nav_container");
 
   hamburgerMenuButton.addEventListener("click", () => {
-    if (navContainer.classList.contains("menu_open")) {
-      navContainer.classList.remove("menu_open");
-    } else {
-      navContainer.classList.add("menu_open");
-    }
+    navContainer.classList.contains("menu_open")
+      ? navContainer.classList.remove("menu_open")
+      : navContainer.classList.add("menu_open");
   });
 };
 
@@ -138,11 +136,9 @@ const addSearchFunction = () => {
 
   searchButton.addEventListener("click", (e) => {
     const overlay = e.explicitOriginalTarget.nextElementSibling;
-    if (overlay.classList.contains("hide")) {
-      overlay.classList.remove("hide");
-    } else {
-      overlay.classList.add("hide");
-    }
+    overlay.classList.contains("hide")
+      ? overlay.classList.remove("hide")
+      : overlay.classList.add("hide");
   });
 };
 
