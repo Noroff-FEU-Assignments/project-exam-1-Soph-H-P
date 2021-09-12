@@ -1,0 +1,66 @@
+.hero {
+  padding: 0;
+  margin: 0 auto;
+}
+
+.catagory_filters_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px auto;
+  width: min-content;
+}
+
+.catagory_filters {
+  width: 200px;
+}
+
+.posts_container {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(1, 1fr);
+  justify-items: center;
+}
+
+.post_preview {
+  max-width: 300px;
+}
+
+.view_more_container {
+  text-align: center;
+  margin: 10px;
+}
+.loader_container {
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  width: 180px;
+  height: 180px;
+  margin: 80px auto;
+  color: var(--light-color);
+}
+
+#all-categories {
+  grid-column: span 2;
+  justify-self: center;
+}
+
+#types-of-bug {
+  color: var(--dark-color);
+  background-color: var(--color-1);
+}
+#bugs-with-bugs {
+  color: var(--light-color);
+  background-color: var(--color-6);
+}
+#bug-history {
+  color: var(--dark-color);
+  background-color: var(--color-2);
+}
+#bugs-that-are-code {
+  color: var(--light-color);
+  background-color: var(--color-4);
+}

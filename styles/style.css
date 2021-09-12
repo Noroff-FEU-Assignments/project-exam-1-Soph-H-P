@@ -332,6 +332,12 @@ footer ul {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+  transition: transforn 0.6s ease 0s;
+}
+
+.post_preview:hover {
+  transform: scale(1.04);
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 14px;
 }
 
 .category {
@@ -380,12 +386,12 @@ footer ul {
   object-fit: cover;
 }
 
-.carousel_container .loading_featured_image {
-  background: lightgray;
+.loading_featured_image {
+  background: var(--color-1);
   height: 200px;
 }
 
-.carousel_container .magnifying_glass {
+.magnifying_glass {
   animation: loading 2s infinite cubic-bezier(0.1, 0.2, 0.3, 0.4);
   position: absolute;
   height: 60px;
@@ -394,7 +400,7 @@ footer ul {
   filter: brightness(100);
 }
 
-.carousel_container .lil_bug {
+.lil_bug {
   animation: bug 2s infinite cubic-bezier(0.1, 0.2, 0.3, 0.4);
   position: absolute;
   height: 10px;

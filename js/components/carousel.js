@@ -26,8 +26,6 @@ const renderPost = (id, category, categoryId, imgSrc, imgAlt, date, title, excer
     `;
 };
 
-
-
 const renderCarousel = async (fetchResults, carouselTitle) => {
   const postsArray = await fetchResults;
   let postsHtml = "";
@@ -46,6 +44,3 @@ const renderCarousel = async (fetchResults, carouselTitle) => {
   titleOfCarousel.innerHTML = carouselTitle;
   slidingArea.innerHTML = postsHtml;
 };
-
-// const postsUrl = "https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed";
-// renderCarousel(fetchPosts(postsUrl), "Latest Posts");

@@ -75,6 +75,8 @@ const renderBlogPost = async () => {
   //render the carousel of related posts
   const categoryUrl = `https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&categories=${category.id}`;
 
+  document.title = `${title} | Bug Blog`;
+
   const postsByCategory = await fetchPosts(categoryUrl);
   renderCarousel(postsByCategory, "Posts in this category");
 };

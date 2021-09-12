@@ -4,7 +4,6 @@
   * {
     /* background-color: #03030307; */
   }
-
 }
 
 @media (min-width: 500px) {
@@ -16,10 +15,17 @@
     top: 10px;
   }
 
+  /*blog post page*/
   .blog_post {
     max-width: 1200px;
     margin: 0 auto;
     padding: 50px;
+  }
+
+  /*Blog page*/
+
+  .posts_container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -35,8 +41,6 @@
   h2 {
     font-size: 2rem;
   }
-
-  
 
   .search_input_overlay {
     height: 50vh;
@@ -73,23 +77,34 @@
     width: 90%;
   }
 
-/*--------------Contact page----------------*/
+  /*--------------Contact page----------------*/
   figure.wp-block-image.size-large.full_screen_view,
-figure.wp-block-image.size-full.full_screen_view {
-  /* width: 100vw;
+  figure.wp-block-image.size-full.full_screen_view {
+    /* width: 100vw;
   height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
   margin: 0 auto;
   background-color: var(--modal-color); */
-  padding: 50px;
-}
+    padding: 50px;
+  }
 
-figure.wp-block-image.size-large,
-figure.wp-block-image.size-full {
-  width: 70%;
-}
+  figure.wp-block-image.size-large,
+  figure.wp-block-image.size-full {
+    width: 70%;
+  }
+
+  /*Blog page*/
+  .catagory_filters_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+  }
+
+  #all-categories {
+    grid-column: span 4;
+  }
 }
 
 @media (min-width: 800px) {
@@ -184,7 +199,7 @@ figure.wp-block-image.size-full {
   .cta {
     position: relative;
     display: inline-block;
-    width: 150px;
+    width: 160px;
     transition: all 2s ease-out;
   }
 
@@ -257,5 +272,33 @@ figure.wp-block-image.size-full {
   .form_container > .input_container > input,
   .form_container > .input_container > textarea {
     width: 100%;
+  }
+
+  /*Blog page*/
+  .catagory_filters_container {
+    width: 90%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .posts_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #all-categories {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1000px) {
+  /*Blog page*/
+  .catagory_filters_container {
+    width: 95%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  #all-categories {
+    grid-column: span 4;
   }
 }
