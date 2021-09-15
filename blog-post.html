@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/contact.css" />
     <link rel="stylesheet" href="styles/blog-post.css" />
     <link rel="stylesheet" href="styles/media_queries.css" />
     <title>Blog Post | Bug Blog</title>
@@ -29,6 +30,50 @@
       <div class="blog_post">
         <div class="author_info"></div>
         <div class="blog_post_content"></div>
+      </div>
+      <hr />
+      <div class="comments">
+        <h2>Comments</h2>
+        <section class="comments_section">
+          <div class="comments_container"></div>
+          <form class="form_container">
+            <h3>Add your own delightful little comment?</h3>
+            <p class="send-success">
+              Your comment has been sent, sit back, relax and contemplate life...
+            </p>
+            <div class="input_container">
+              <label for="name"
+                >Name
+                <span class="form_error_message" id="name-error">
+                  Please enter your full name (minimum 5 characters)
+                </span></label
+              >
+              <input type="text" id="name" />
+            </div>
+
+            <div class="input_container">
+              <label for="email">
+                Email
+                <span class="form_error_message" id="email-error"
+                  >Please enter a valid email address</span
+                ></label
+              >
+              <input type="email" id="email" />
+            </div>
+
+            <div class="input_container">
+              <label for="message">
+                Message<span class="form_error_message" id="message-error">
+                  Please enter a valid message (minimum 25 characters)
+                </span></label
+              >
+              <textarea id="message"></textarea>
+              <p>Characters remaining: <span id="character-count">500</span></p>
+            </div>
+
+            <button type="submit" class="send_button cta blue_snail" disabled="true">Send</button>
+          </form>
+        </section>
       </div>
       <div class="carousel_container">
         <h2 class="carousel_title">Loading...</h2>
@@ -73,6 +118,7 @@
     </main>
     <footer></footer>
     <script src="js/components/carousel.js"></script>
+    <script src="js/contact.js"></script>
     <script src="js/blog-post.js"></script>
     <script src="js/script.js"></script>
   </body>

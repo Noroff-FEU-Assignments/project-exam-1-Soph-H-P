@@ -10,6 +10,7 @@
   flex-direction: column;
   position: relative;
   z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
 }
 
 textarea {
@@ -34,10 +35,6 @@ textarea {
   margin: 25px auto;
 }
 
-.form_container > .input_container > input + label,
-.form_container > .input_container > textarea + label {
-  
-}
 
 button {
   align-self: center;

@@ -28,7 +28,7 @@ const renderBlogPost = async () => {
   const authorImg = blogPost._embedded.author[0].avatar_urls[96];
   const authorHtml = `
       <div class="author_img" >
-        <img src="${authorImg}" alt="Picture of me the author">
+        <img src="${authorImg}" alt="Me the author">
       </div>
       <p>By ${author}</p>
   `;
@@ -68,11 +68,99 @@ const renderBlogPost = async () => {
 
   document.title = `${title} | Bug Blog`;
 
+  //Render Users Comments-----------------
+  const comments = blogPost._embedded.replies && blogPost._embedded.replies[0];
+  const commentsContainer = document.querySelector(".comments_container");
+  if (!comments) {
+    commentsContainer.innerHTML = `
+    <div class="comment">
+    <p>No comments to show</p>
+    </div>
+    `;
+  } else {
+    const renderComments = async () => {
+      comments.forEach((comment) => {
+        const commentAuthor = comment.author_name;
+        const commentId = comment.id;
+        const commentDate = new Date(comment.date);
+        const formattedCommentDate = commentDate.toDateString();
+        const commentHours = commentDate.getHours();
+        const commentMinutes = commentDate.getMinutes();
+        const formatMinutes = () => {
+          if (commentMinutes < 10) {
+            return `0${commentDate.getMinutes()}`;
+          } else {
+            return commentDate.getMinutes();
+          }
+        };
+        const commentDateHtml = `
+        ${formattedCommentDate} - ${commentHours}:${formatMinutes()}
+        `;
+        const commentContent = comment.content.rendered;
+        const commentAuthorImg = () => {
+          let commentAuthorImage;
+          if (commentId <= 3) {
+            commentAuthorImage = "../icons/greenbug.svg";
+          } else if (commentId > 3 && commentId <= 6) {
+            commentAuthorImage = "../icons/darkbluebug.svg";
+          } else if (commentId > 6 && commentId <= 9) {
+            commentAuthorImage = "../icons/lightbluebug.svg";
+          } else if (commentId > 9 && commentId <= 12) {
+            commentAuthorImage = "../icons/purplebug.svg";
+          } else {
+            commentAuthorImage = "../icons/blackbug.svg";
+          }
+          return commentAuthorImage;
+        };
+        const commentHtml = `
+                <div class="comment">
+                <div class="author_date">
+                <div class="author_img" >
+                <img src="${commentAuthorImg()}" alt="author of comment">
+              </div>
+                <h4>${commentAuthor}</h4>
+                  <p>${commentDateHtml}</p>
+                </div>
+                  ${commentContent}
+                </div>
+
+                `;
+        commentsContainer.innerHTML += commentHtml;
+      });
+    };
+    renderComments();
+  }
+
   const postsByCategory = await fetchPosts(categoryUrl);
   renderCarousel(postsByCategory, "Posts in this category");
 };
 
 renderBlogPost();
+
+//Allow Users to Comment-----------------
+const handleUserComment = async () => {
+  const postCommentUrl = `https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/comments`;
+  const userComment = JSON.stringify({
+    post: postId,
+    author_name: fullName.value,
+    author_email: email.value,
+    content: message.value,
+  });
+  try {
+    const response = await fetch(postCommentUrl, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: userComment,
+    });
+    response.ok ? form.reset() : console.log("Commenting not possible at this time");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+form.addEventListener("submit", handleUserComment);
 
 //Carousel-----------------
 

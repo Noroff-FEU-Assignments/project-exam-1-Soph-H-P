@@ -37,44 +37,78 @@ const validateEmail = (userInput, regEx) => {
 
 //validate form
 const validateForm = () => {
-  if (
-    checkRequiredLength(fullName.value, "min", 5) &&
-    checkRequiredLength(subject.value, "min", 15) &&
-    validateEmail(email.value, emailRegEx) &&
-    checkRequiredLength(message.value, "max", 500) &&
-    checkRequiredLength(message.value, "min", 25)
-  ) {
-    stylesToChange(
-      fullName,
-      nameError,
-      "0px var(--light-color) solid",
-      "var(--light-color)",
-      "none"
-    );
-    stylesToChange(
-      subject,
-      subjectError,
-      "4px var(--light-color) solid",
-      "var(--light-color)",
-      "none"
-    );
-    stylesToChange(
-      email,
-      emailError,
-      "0px var(--light-color) solid",
-      "var(--light-color)",
-      "none"
-    );
-    stylesToChange(
-      message,
-      messageError,
-      "0px var(--light-color) solid",
-      "var(--light-color)",
-      "none"
-    );
-    return true;
+  if (!subject) {
+    if (
+      checkRequiredLength(fullName.value, "min", 5) &&
+      validateEmail(email.value, emailRegEx) &&
+      checkRequiredLength(message.value, "max", 500) &&
+      checkRequiredLength(message.value, "min", 25)
+    ) {
+      stylesToChange(
+        fullName,
+        nameError,
+        "0px var(--light-color) solid",
+        "var(--light-color)",
+        "none"
+      );
+      stylesToChange(
+        email,
+        emailError,
+        "0px var(--light-color) solid",
+        "var(--light-color)",
+        "none"
+      );
+      stylesToChange(
+        message,
+        messageError,
+        "0px var(--light-color) solid",
+        "var(--light-color)",
+        "none"
+      );
+      return true;
+    } else {
+      return false;
+    }
   } else {
-    return false;
+    if (
+      checkRequiredLength(fullName.value, "min", 5) &&
+      checkRequiredLength(subject.value, "min", 15) &&
+      validateEmail(email.value, emailRegEx) &&
+      checkRequiredLength(message.value, "max", 500) &&
+      checkRequiredLength(message.value, "min", 25)
+    ) {
+      stylesToChange(
+        fullName,
+        nameError,
+        "0px var(--light-color) solid",
+        "var(--light-color)",
+        "none"
+      );
+      stylesToChange(
+        subject,
+        subjectError,
+        "4px var(--light-color) solid",
+        "var(--light-color)",
+        "none"
+      );
+      stylesToChange(
+        email,
+        emailError,
+        "0px var(--light-color) solid",
+        "var(--light-color)",
+        "none"
+      );
+      stylesToChange(
+        message,
+        messageError,
+        "0px var(--light-color) solid",
+        "var(--light-color)",
+        "none"
+      );
+      return true;
+    } else {
+      return false;
+    }
   }
 };
 
@@ -83,7 +117,7 @@ const handleSubmit = (event) => {
   event.preventDefault();
 
   if (validateForm()) {
-    form.reset();
+  //   form.reset();
     button.disabled = true;
     characterCount.innerHTML = 500;
     sendSuccess.style.display = "block";
@@ -136,6 +170,9 @@ const handleKeyUpName = () => {
 };
 
 const handleFocusOutName = () => {
+  if (checkRequiredLength(fullName.value, "min", 5)) {
+    stylesToChange(fullName, nameError, "none", "var(--color-1)", "none");
+  }
   if (!checkRequiredLength(fullName.value, "min", 5)) {
     fullName.style.border = "4px var(--error-color) solid";
     nameError.style.display = "block";
@@ -150,6 +187,9 @@ const handleKeyUpSubject = () => {
 };
 
 const handleFocusOutSubject = () => {
+  if (checkRequiredLength(subject.value, "min", 15)) {
+    stylesToChange(subject, subjectError, "none", "var(--color-1)", "none");
+  }
   if (!checkRequiredLength(subject.value, "min", 15)) {
     subject.style.border = "4px var(--error-color) solid";
     subjectError.style.display = "block";
@@ -164,6 +204,9 @@ const handleKeyUpEmail = () => {
 };
 
 const handleFocusOutEmail = () => {
+  if (validateEmail(email.value, emailRegEx)) {
+    stylesToChange(email, emailError, "none", "var(--color-1)", "none");
+  }
   if (!validateEmail(email.value, emailRegEx)) {
     email.style.border = "4px var(--error-color) solid";
     emailError.style.display = "block";
@@ -183,6 +226,14 @@ const handleKeyUpMessage = () => {
 };
 const handleFocusOutMessage = () => {
   if (
+    checkRequiredLength(message.value, "max", 500) &&
+    checkRequiredLength(message.value, "min", 25)
+  ) {
+    message.style.border = "4px var(--color-1) solid";
+    messageError.style.display = "none";
+    button.disabled = false;
+  }
+  if (
     !checkRequiredLength(message.value, "max", 500) ||
     !checkRequiredLength(message.value, "min", 25)
   ) {
@@ -191,19 +242,17 @@ const handleFocusOutMessage = () => {
   }
 };
 
-button.addEventListener("click", () => {
-
-});
+button.addEventListener("click", () => {});
 
 fullName.addEventListener("keyup", handleKeyUpName);
-subject.addEventListener("keyup", handleKeyUpSubject);
+subject && subject.addEventListener("keyup", handleKeyUpSubject);
 email.addEventListener("keyup", handleKeyUpEmail);
 message.addEventListener("keyup", handleKeyUpMessage);
 fullName.addEventListener("focus", handleKeyUpName);
-subject.addEventListener("focus", handleKeyUpSubject);
+subject && subject.addEventListener("focus", handleKeyUpSubject);
 email.addEventListener("focus", handleKeyUpEmail);
 message.addEventListener("focus", handleKeyUpMessage);
 fullName.addEventListener("focusout", handleFocusOutName);
-subject.addEventListener("focusout", handleFocusOutSubject);
+subject && subject.addEventListener("focusout", handleFocusOutSubject);
 email.addEventListener("focusout", handleFocusOutEmail);
 message.addEventListener("focusout", handleFocusOutMessage);
