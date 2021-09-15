@@ -30,15 +30,34 @@ textarea {
   align-self: center;
 }
 
-.form_container > .input_container > * {
+.form_container > .input_container {
   margin: 25px auto;
 }
 
 .form_container > .input_container > input + label,
 .form_container > .input_container > textarea + label {
-  top: -1.6rem;
+  
 }
 
 button {
   align-self: center;
+}
+
+.form_error_message {
+  display: none;
+  color: var(--error-color);
+  margin: 0px;
+  font-size: 0.8rem;
+  background-color: var(--light-color);
+  padding: 5px;
+}
+
+.send-success {
+  display: none;
+  font-size: 2rem;
+  border-radius: 20px;
+  background-color: var(--color-1);
+  color: var(--light-color);
+  padding: 20px 40px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 14px;
 }

@@ -3,7 +3,7 @@
   margin: 0 auto;
 }
 
-.catagory_filters_container {
+.category_filters_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
@@ -11,7 +11,7 @@
   width: min-content;
 }
 
-.catagory_filters {
+.category_filters {
   width: 200px;
 }
 

@@ -10,7 +10,8 @@ const blogPostContent = document.querySelector(".blog_post_content");
 const blogPostAuthor = document.querySelector(".author_info");
 
 const renderBlogPost = async () => {
-  const blogPost = await fetchPosts(singleBlogPostUrl);
+  const results = await fetchPosts(singleBlogPostUrl);
+  const blogPost = results.results;
   const title = blogPost.title.rendered;
   blogPostTitle.innerHTML = title;
   const imgSrc = blogPost._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;

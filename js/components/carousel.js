@@ -2,7 +2,9 @@ const fetchPosts = async (url) => {
   try {
     const response = await fetch(url);
     const results = await response.json();
-    return results;
+    const totalNumberOfPosts = response.headers.get('x-wp-total');
+   
+    return {results, totalNumberOfPosts};
   } catch (error) {
     console.log(error);
   }
@@ -26,8 +28,7 @@ const renderPost = (id, category, categoryId, imgSrc, imgAlt, date, title, excer
     `;
 };
 
-const renderCarousel = async (fetchResults, carouselTitle) => {
-  const postsArray = await fetchResults;
+const renderPreview = (postsArray) => {
   let postsHtml = "";
   postsArray.map((post) => {
     const id = post.id;
@@ -41,6 +42,18 @@ const renderCarousel = async (fetchResults, carouselTitle) => {
     const excerpt = post.excerpt.rendered;
     postsHtml += renderPost(id, category, categoryId, imgSrc, imgAlt, date, title, excerpt);
   });
+  return postsHtml
+}
+
+const renderCarousel = async (fetchResults, carouselTitle) => {
+  try {
+      const results = await fetchResults;
+      const postsArray = results.results
+      const postsHtml = renderPreview(postsArray)
   titleOfCarousel.innerHTML = carouselTitle;
   slidingArea.innerHTML = postsHtml;
+  } catch (error) {
+    console.log(error);
+  }
+
 };

@@ -26,31 +26,58 @@
       <div class="hero">
         <h1>Contact</h1>
       </div>
-      <div class="form_container">
+      <form class="form_container">
+        <p class="send-success">
+          Your message has been sent, sit back, relax and contemplate life...
+        </p>
         <div class="input_container">
+          
+          <label for="name"
+            >Name
+            <span class="form_error_message" id="name-error">
+              Please enter your full name (minimum 5 characters)
+            </span></label
+          >
           <input type="text" id="name" />
-          <label for="name"> Name</label>
         </div>
 
         <div class="input_container">
+          
+          <label for="email">
+            Email
+            <span class="form_error_message" id="email-error"
+              >Please enter a valid email address</span
+            ></label
+          >
           <input type="email" id="email" />
-          <label for="email"> Email </label>
         </div>
 
         <div class="input_container">
+          
+          <label for="subject">
+            Subject<span class="form_error_message" id="subject-error">
+              Please enter a more descriptive subject
+            </span></label
+          >
           <input type="text" id="subject" />
-          <label for="subject"> Subject</label>
         </div>
 
         <div class="input_container">
-          <textarea id="message" required></textarea>
-          <label for="message"> Message</label>
+          
+          <label for="message">
+            Message<span class="form_error_message" id="message-error">
+              Please enter a valid message (minimum 25 characters)
+            </span></label
+          >
+          <textarea id="message"></textarea>
+          <p>Characters remaining: <span id="character-count">500</span></p>
         </div>
 
-        <button type="submit" class="send_button cta blue_snail" >Send</button>
-      </div>
+        <button type="submit" class="send_button cta blue_snail" disabled="true">Send</button>
+      </form>
     </main>
     <footer></footer>
     <script src="js/script.js"></script>
+    <script src="js/contact.js"></script>
   </body>
 </html>

@@ -96,7 +96,7 @@
   }
 
   /*Blog page*/
-  .catagory_filters_container {
+  .category_filters_container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
@@ -196,25 +196,25 @@
 
   /*----Snail button----*/
 
-  .cta {
+  .cta:not(.cta:disabled) {
     position: relative;
     display: inline-block;
     width: 160px;
     transition: all 2s ease-out;
   }
 
-  .cta:hover {
+  .cta:not(.cta:disabled):hover {
     border-radius: 30px;
     transition: all 1s ease-out;
     background-color: var(--color-5);
   }
-  .cta:active:hover {
+  .cta:not(.cta:disabled):active:hover {
     transition: none;
     color: var(--color-1);
     background-color: var(--light-color);
   }
 
-  .cta::after {
+  .cta:not(.cta:disabled)::after {
     content: "";
     background: url("../icons/snail.svg") center / 70px 100px no-repeat;
     position: absolute;
@@ -226,11 +226,11 @@
     transition: all 1s ease-out;
   }
 
-  .cta.blue_snail::after {
+  .cta.blue_snail:not(.cta:disabled)::after {
     filter: brightness(0.8) sepia(1) hue-rotate(170deg) saturate(6);
   }
 
-  .cta:hover.cta::after {
+  .cta:not(.cta:disabled):hover.cta:not(.cta:disabled)::after {
     left: -42px;
     height: 65px;
     width: 250px;
@@ -275,7 +275,7 @@
   }
 
   /*Blog page*/
-  .catagory_filters_container {
+  .category_filters_container {
     width: 90%;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -292,7 +292,7 @@
 
 @media (min-width: 1000px) {
   /*Blog page*/
-  .catagory_filters_container {
+  .category_filters_container {
     width: 95%;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;

@@ -41,13 +41,13 @@
 }
 
 .author_info .author_img img {
-  width: 100px;
+  width: 70px;
   height: 70px;
 }
 
 figure.wp-block-image.size-large,
 figure.wp-block-image.size-full {
-  width: 100%;
+  width: 80%;
   height: auto;
   font-size: 0.8rem;
   overflow: hidden;
