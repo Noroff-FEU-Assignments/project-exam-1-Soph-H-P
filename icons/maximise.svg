@@ -1,8 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="21.826" height="21.611" viewBox="0 0 21.826 21.611">
-  <g id="Group_420" data-name="Group 420" transform="translate(-48.5 -828)">
-    <path id="Path_126" data-name="Path 126" d="M20.387,12.444A7.944,7.944,0,1,1,12.444,4.5a7.944,7.944,0,0,1,7.944,7.944Z" transform="translate(45 824.5)" fill="none" stroke="#fafafa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-    <path id="Path_127" data-name="Path 127" d="M30.739,30.428l-5.764-5.453" transform="translate(38.174 817.769)" fill="none" stroke="#fafafa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-    <line id="Line_5" data-name="Line 5" x2="7.986" transform="translate(53.303 837.081)" fill="none" stroke="#fafafa" stroke-linecap="round" stroke-width="2"/>
-    <line id="Line_6" data-name="Line 6" x2="7.986" transform="translate(57.296 833.088) rotate(90)" fill="none" stroke="#fafafa" stroke-linecap="round" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="23.415" height="23.198" viewBox="0 0 23.415 23.198">
+  <g id="Group_420" data-name="Group 420" transform="translate(-47.499 -827)">
+    <path id="Union_2" data-name="Union 2" d="M4169.382-52.213l-4.937-4.671a9.391,9.391,0,0,1-5.5,1.773,9.384,9.384,0,0,1-6.678-2.766,9.382,9.382,0,0,1-2.767-6.678A9.455,9.455,0,0,1,4158.943-74a9.387,9.387,0,0,1,6.679,2.766,9.387,9.387,0,0,1,2.767,6.679c0,.02,0,.04,0,.06a9.392,9.392,0,0,1-1.812,5.5l4.869,4.606a1.5,1.5,0,0,1,.059,2.12,1.5,1.5,0,0,1-1.09.469A1.5,1.5,0,0,1,4169.382-52.213ZM4152.5-64.556A6.4,6.4,0,0,0,4154.386-60a6.4,6.4,0,0,0,4.557,1.887,6.452,6.452,0,0,0,6.445-6.444v-.049a6.4,6.4,0,0,0-1.887-4.508A6.4,6.4,0,0,0,4158.943-71,6.45,6.45,0,0,0,4152.5-64.556Z" transform="translate(-4101.5 901.5)" fill="#fafafa" stroke="#000" stroke-linecap="round" stroke-width="1"/>
+    <path id="Union_1" data-name="Union 1" d="M4152.764-66.241V-68.28h-2.038a1.227,1.227,0,0,1-1.228-1.227,1.227,1.227,0,0,1,1.228-1.226h2.038v-2.039A1.227,1.227,0,0,1,4153.992-74a1.227,1.227,0,0,1,1.227,1.226v2.039h2.039a1.227,1.227,0,0,1,1.228,1.226,1.227,1.227,0,0,1-1.228,1.227h-2.039v2.039a1.227,1.227,0,0,1-1.227,1.226A1.227,1.227,0,0,1,4152.764-66.241Z" transform="translate(-4096.696 906.588)" fill="#fafafa" stroke="#000" stroke-linecap="round" stroke-width="1"/>
   </g>
 </svg>

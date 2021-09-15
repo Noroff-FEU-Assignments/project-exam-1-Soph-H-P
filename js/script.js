@@ -57,7 +57,7 @@ const headerNavDesktop = `
             
             <div class="search_input_overlay overlay hide">
                 <div class="input_container">
-                    <input class="overlay" type="text" />
+                    <input class="overlay search_input" type="text" />
                     <label class="overlay" for="search">Search...</label>
                 </div> 
           </div>
@@ -92,7 +92,7 @@ const headerNavMobile = `
             <button class="search_button" aria-label="search button"></button>
             <div class="search_input_overlay overlay hide">
                 <div class="input_container">
-                    <input class="overlay" type="text" />
+                    <input class="overlay search_input" type="text"/>
                     <label class="overlay" for="search">Search...</label>
                 </div> 
             </div>
@@ -133,12 +133,19 @@ const addBurgerFunctions = () => {
 
 const addSearchFunction = () => {
   const searchButton = document.querySelector(".search_button");
+  const searchInput = document.querySelector(".search_input");
 
   searchButton.addEventListener("click", (e) => {
     const overlay = e.explicitOriginalTarget.nextElementSibling;
     overlay.classList.contains("hide")
-      ? overlay.classList.remove("hide")
+      ? (overlay.classList.remove("hide"), (searchInput.focus()))
       : overlay.classList.add("hide");
+  });
+
+  searchInput.addEventListener("keyup", (e) => {
+    const searchInput = e.target.value;
+    const key = e.key;
+    if (key === "Enter") window.location.href = `/search-results.html?search=${searchInput}`;
   });
 };
 

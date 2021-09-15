@@ -51,24 +51,14 @@ const renderBlogPost = async () => {
           image.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }),
           (e.target.style.cursor = `default`));
     });
-    //     image.addEventListener("keypress", (e) => {
-    // if()
-    //    {   const element = e.target.tagName;
-
-    //       image.classList.contains("full_screen_view") && element !== "IMG"
-    //         ? image.classList.remove("full_screen_view")
-    //         : (image.classList.add("full_screen_view"),
-    //           image.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }),
-    //           (e.target.style.cursor = `default`));}
-    //     });
     image.addEventListener("mouseover", (e) => {
       const element = e.target.tagName;
       image.classList.contains("full_screen_view") && element !== "IMG"
-        ? (image.style.cursor = `url("../icons/minimise.svg") 30 30, pointer`)
+        ? (image.style.cursor = `zoom-out`)
         : image.classList.contains("full_screen_view") && element === "IMG"
         ? (e.target.style.cursor = `default`)
         : !image.classList.contains("full_screen_view") && element === "IMG"
-        ? (e.target.style.cursor = `url("../icons/maximise.svg") 30 30, pointer`)
+        ? (e.target.style.cursor = `zoom-in`)
         : (e.target.style.cursor = `default`);
     });
   });
