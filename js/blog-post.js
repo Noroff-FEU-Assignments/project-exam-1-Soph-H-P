@@ -74,7 +74,7 @@ const renderBlogPost = async () => {
   const commentsHeading = document.querySelector(".comments_heading");
 
   if (!comments) {
-    commentsHeading.innerHTML = "Be the first to write delightful little comment!"
+    commentsHeading.innerHTML = "Be the first to write delightful little comment!";
     commentsContainer.innerHTML = `
     <div class="comment">
     <p>No comments to show</p>
@@ -157,10 +157,14 @@ const handleUserComment = async () => {
       },
       body: userComment,
     });
-    response.ok ? form.reset() : (sendSuccess.innerHTML = "Commenting not possible at this time", sendSuccess.style.backgroundColor = "var(--error-color)");
+    response.ok
+      ? form.reset()
+      : ((sendSuccess.innerHTML = "Commenting not possible at this time"),
+        (sendSuccess.style.backgroundColor = "var(--error-color)"));
   } catch (error) {
-    sendSuccess.innerHTML = "Commenting not possible at this time please try again later or contact me"
-    sendSuccess.style.backgroundColor = "var(--error-color)"
+    sendSuccess.innerHTML =
+      "Commenting not possible at this time please try again later or contact me";
+    sendSuccess.style.backgroundColor = "var(--error-color)";
     console.log(error);
   }
 };

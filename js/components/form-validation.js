@@ -117,7 +117,7 @@ const handleSubmit = (event) => {
   event.preventDefault();
 
   if (validateForm()) {
-  //   form.reset();
+    //   form.reset();
     button.disabled = true;
     characterCount.innerHTML = 500;
     sendSuccess.style.display = "block";
@@ -145,8 +145,6 @@ const handleSubmit = (event) => {
 };
 
 form.addEventListener("submit", handleSubmit);
-
-
 
 //Check character count of message
 let characterLimit = 500;

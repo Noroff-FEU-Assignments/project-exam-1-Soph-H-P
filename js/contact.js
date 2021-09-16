@@ -13,13 +13,12 @@ const handleContactFormSubmit = async (event) => {
       method,
       body,
     });
-    response.ok ? form.reset() : sendSuccess.innerHTML = "Message cannot be sent at this time";
+    response.ok ? form.reset() : (sendSuccess.innerHTML = "Message cannot be sent at this time");
   } catch (error) {
-    sendSuccess.innerHTML = "Messaging not possible at this time please try again later"
-    sendSuccess.style.backgroundColor = "var(--error-color)"
+    sendSuccess.innerHTML = "Messaging not possible at this time please try again later";
+    sendSuccess.style.backgroundColor = "var(--error-color)";
     console.log(error);
   }
 };
 
 contactForm.addEventListener("submit", handleContactFormSubmit);
-

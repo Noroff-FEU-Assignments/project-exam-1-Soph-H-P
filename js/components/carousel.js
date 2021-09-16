@@ -2,9 +2,9 @@ const fetchPosts = async (url) => {
   try {
     const response = await fetch(url);
     const results = await response.json();
-    const totalNumberOfPosts = response.headers.get('x-wp-total');
-   
-    return {results, totalNumberOfPosts};
+    const totalNumberOfPosts = response.headers.get("x-wp-total");
+
+    return { results, totalNumberOfPosts };
   } catch (error) {
     console.log(error);
   }
@@ -42,18 +42,17 @@ const renderPreview = (postsArray) => {
     const excerpt = post.excerpt.rendered;
     postsHtml += renderPost(id, category, categoryId, imgSrc, imgAlt, date, title, excerpt);
   });
-  return postsHtml
-}
+  return postsHtml;
+};
 
 const renderCarousel = async (fetchResults, carouselTitle) => {
   try {
-      const results = await fetchResults;
-      const postsArray = results.results
-      const postsHtml = renderPreview(postsArray)
-  titleOfCarousel.innerHTML = carouselTitle;
-  slidingArea.innerHTML = postsHtml;
+    const results = await fetchResults;
+    const postsArray = results.results;
+    const postsHtml = renderPreview(postsArray);
+    titleOfCarousel.innerHTML = carouselTitle;
+    slidingArea.innerHTML = postsHtml;
   } catch (error) {
     console.log(error);
   }
-
 };

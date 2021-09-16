@@ -1,9 +1,8 @@
 @import "./imports/variables.css";
 
-
 .hero {
-    padding-bottom: 150vh;
-    margin-bottom: -145vh;
+  padding-bottom: 150vh;
+  margin-bottom: -145vh;
 }
 
 .about_container {
@@ -19,8 +18,7 @@
 }
 
 .about_container h2 {
-    margin: 20px auto;
-
+  margin: 20px auto;
 }
 
 .image_container {
@@ -38,7 +36,7 @@
 }
 
 .info {
-    padding: 20px;
+  padding: 20px;
 }
 
 .random_post_cta_container {

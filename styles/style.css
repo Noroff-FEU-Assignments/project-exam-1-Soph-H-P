@@ -73,8 +73,6 @@ button {
   border: none;
 }
 
-
-
 .cta {
   background-color: var(--color-1);
   color: var(--light-color);
@@ -245,9 +243,8 @@ header {
 }
 
 .sorry_no_results {
-  grid-column: 1/-1
+  grid-column: 1/-1;
 }
-
 
 /*--------Logo--------*/
 
@@ -396,13 +393,12 @@ footer ul {
   width: 100%;
   height: 120px;
   object-fit: cover;
- 
 }
 
 .loading_featured_image {
   background: var(--color-1);
   height: 200px;
-  grid-column: 1/-1
+  grid-column: 1/-1;
 }
 
 .magnifying_glass {

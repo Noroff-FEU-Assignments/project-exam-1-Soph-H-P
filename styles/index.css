@@ -1,47 +1,46 @@
 @import "./imports/variables.css";
 
-
 .found_a_bug_container {
-    display: grid;
-    grid-template-areas: 
+  display: grid;
+  grid-template-areas:
     "title "
     "image"
     "paragraph"
     "button";
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
-    background: var(--light-color);
-    border-radius: 30px;
-    padding: 20px;
-    margin: 0 auto;
-    position:relative;
-    max-width: 800px;
-    align-items: center;
-    justify-items: center;
-    z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+  background: var(--light-color);
+  border-radius: 30px;
+  padding: 20px;
+  margin: 0 auto;
+  position: relative;
+  max-width: 800px;
+  align-items: center;
+  justify-items: center;
+  z-index: 1;
 }
 
 .found_a_bug_container > h2 {
-    grid-area: title;
+  grid-area: title;
 }
 
 .found_a_bug_container > p {
-    grid-area: paragraph;
-    padding-right: 40px;
-    max-width: 490px;
+  grid-area: paragraph;
+  padding-right: 40px;
+  max-width: 490px;
 }
 
 .found_a_bug_container > a {
-    grid-area: button;
+  grid-area: button;
 }
 
-.image_container {
-    align-self: center;
-    overflow: hidden;
-    grid-area: image;
+.image_container  {
+  align-self: center;
+  overflow: hidden;
+  grid-area: image;
 }
 
 .image_container img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 30px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 30px;
 }

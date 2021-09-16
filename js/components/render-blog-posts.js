@@ -19,7 +19,7 @@ const renderBlogPosts = async (fetchResults) => {
     const loadingArea = document.querySelector(".loader_container");
     loadingArea && loadingArea.remove();
     postsContainer.innerHTML = postsHtml;
-    return totalNumberOfPosts
+    return totalNumberOfPosts;
   } catch (error) {
     console.log(error);
   }

@@ -1,16 +1,6 @@
 @import "./imports/variables.css";
 
-@media (min-width: 400px) {
-  * {
-    /* background-color: #03030307; */
-  }
-}
-
 @media (min-width: 500px) {
-  * {
-    /* background-color: #30a17607; */
-  }
-
   .menu_button {
     top: 10px;
   }
@@ -30,10 +20,6 @@
 }
 
 @media (min-width: 600px) {
-  * {
-    /* background-color: #b80f0f0a; */
-  }
-
   h1 {
     font-size: 2.5rem;
   }
@@ -80,13 +66,6 @@
   /*--------------Contact page----------------*/
   figure.wp-block-image.size-large.full_screen_view,
   figure.wp-block-image.size-full.full_screen_view {
-    /* width: 100vw;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  margin: 0 auto;
-  background-color: var(--modal-color); */
     padding: 50px;
   }
 
@@ -108,10 +87,6 @@
 }
 
 @media (min-width: 800px) {
-  * {
-    /* background-color: #dab12a15; */
-  }
-
   h1 {
     font-size: 3rem;
   }
