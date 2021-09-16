@@ -136,7 +136,7 @@ const addSearchFunction = () => {
   const searchInput = document.querySelector(".search_input");
 
   searchButton.addEventListener("click", (e) => {
-    const overlay = e.explicitOriginalTarget.nextElementSibling;
+    const overlay = e.target.nextElementSibling;
     overlay.classList.contains("hide")
       ? (overlay.classList.remove("hide"), searchInput.focus())
       : overlay.classList.add("hide");
