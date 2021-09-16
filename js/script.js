@@ -4,10 +4,10 @@ const footer = document.querySelector("footer");
 
 const socialMediaContainer = `
     <div class="social_media_container">
-        <a class="social_media_icon" href="https://www.facebook.com/" ><img src="../icons/facebook.svg" alt="facebook icon"></a>
-        <a class="social_media_icon" href="https://www.instagram.com/" ><img src="../icons/instagram.svg" alt="instagram icon"></a>
-        <a class="social_media_icon" href="https://www.snapchat.com/" ><img src="../icons/snapchat.svg" alt="snapchat icon"></a>
-        <a class="social_media_icon" href="https://www.twitter.com/" ><img src="../icons/twitter.svg" alt="twitter icon"></a>
+        <a class="social_media_icon" href="https://www.facebook.com/" target=”_blank”><img src="../icons/facebook.svg" alt="facebook icon"></a>
+        <a class="social_media_icon" href="https://www.instagram.com/" target=”_blank”><img src="../icons/instagram.svg" alt="instagram icon"></a>
+        <a class="social_media_icon" href="https://www.snapchat.com/" target=”_blank”><img src="../icons/snapchat.svg" alt="snapchat icon"></a>
+        <a class="social_media_icon" href="https://www.twitter.com/" target=”_blank”><img src="../icons/twitter.svg" alt="twitter icon"></a>
     </div>
 `;
 
