@@ -32,9 +32,8 @@ textarea {
 }
 
 .form_container > .input_container {
-  margin: 25px auto;
+  margin: 10px auto;
 }
-
 
 button {
   align-self: center;

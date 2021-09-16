@@ -194,6 +194,11 @@
     height: 200px;
   }
 
+  figure.wp-block-image.size-large.full_screen_view,
+  figure.wp-block-image.size-full.full_screen_view,
+  .blog_post_featured_image_container.full_screen_view {
+    margin: 50px auto;
+  }
   /*----Snail button----*/
 
   .cta:not(.cta:disabled) {
@@ -248,12 +253,13 @@
       "text image";
   }
 
-  .image_container {
+  .about_container .image_container {
     grid-area: image;
     border-radius: 0px 30px 30px 0px;
     height: 100%;
     max-width: 100%;
     width: 100%;
+    float: none;
     margin: 0px;
   }
 

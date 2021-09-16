@@ -97,7 +97,7 @@ figure.wp-block-image.size-full.full_screen_view,
   position: fixed;
   left: 0;
   top: 0;
-  margin: 50px auto;
+  margin: 0px auto;
   background-color: var(--modal-color);
   padding: 10px;
   color: var(--light-color);
@@ -119,6 +119,18 @@ figure.wp-block-image.size-full.full_screen_view,
 figure.wp-block-image.size-large.full_screen_view img,
 figure.wp-block-image.size-full.full_screen_view img {
   width: auto;
+}
+
+figure.wp-block-image.size-large.full_screen_view::after,
+figure.wp-block-image.size-full.full_screen_view::after,
+.blog_post_featured_image_container.full_screen_view::after {
+  content: "";
+  background: url("../icons/close.svg") center / 44px 44px no-repeat;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 50px;
+  right: 50px;
 }
 
 .comments .form_container {

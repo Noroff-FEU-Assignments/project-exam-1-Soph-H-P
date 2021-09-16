@@ -54,11 +54,11 @@ const renderBlogPost = async () => {
     image.addEventListener("mouseover", (e) => {
       const element = e.target.tagName;
       image.classList.contains("full_screen_view") && element !== "IMG"
-        ? (image.style.cursor = `zoom-out`)
+        ? (image.style.cursor = `pointer`)
         : image.classList.contains("full_screen_view") && element === "IMG"
         ? (e.target.style.cursor = `default`)
         : !image.classList.contains("full_screen_view") && element === "IMG"
-        ? (e.target.style.cursor = `zoom-in`)
+        ? (e.target.style.cursor = `pointer`)
         : (e.target.style.cursor = `default`);
     });
   });
@@ -71,7 +71,10 @@ const renderBlogPost = async () => {
   //Render Users Comments-----------------
   const comments = blogPost._embedded.replies && blogPost._embedded.replies[0];
   const commentsContainer = document.querySelector(".comments_container");
+  const commentsHeading = document.querySelector(".comments_heading");
+
   if (!comments) {
+    commentsHeading.innerHTML = "Be the first to write delightful little comment!"
     commentsContainer.innerHTML = `
     <div class="comment">
     <p>No comments to show</p>
@@ -154,8 +157,10 @@ const handleUserComment = async () => {
       },
       body: userComment,
     });
-    response.ok ? form.reset() : console.log("Commenting not possible at this time");
+    response.ok ? form.reset() : (sendSuccess.innerHTML = "Commenting not possible at this time", sendSuccess.style.backgroundColor = "var(--error-color)");
   } catch (error) {
+    sendSuccess.innerHTML = "Commenting not possible at this time please try again later or contact me"
+    sendSuccess.style.backgroundColor = "var(--error-color)"
     console.log(error);
   }
 };

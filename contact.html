@@ -26,30 +26,30 @@
       <div class="hero">
         <h1>Contact</h1>
       </div>
-      <form class="form_container">
+      <form action="https://soph-web-dev.eu/bug-blog/wp-json/contact-form-7/v1/contact-forms/104/feedback" method="post" class="form_container contact_form">
         <p class="send-success">
           Your message has been sent, sit back, relax and contemplate life...
         </p>
         <div class="input_container">
           
-          <label for="name"
+          <label for="full-name"
             >Name
             <span class="form_error_message" id="name-error">
               Please enter your full name (minimum 5 characters)
             </span></label
           >
-          <input type="text" id="name" />
+          <input type="text" id="full-name" name="full-name"/>
         </div>
 
         <div class="input_container">
           
           <label for="email">
             Email
-            <span class="form_error_message" id="email-error"
+            <span class="form_error_message" id="email-error" name="email-error"
               >Please enter a valid email address</span
             ></label
           >
-          <input type="email" id="email" />
+          <input type="email" id="email" name="email"/>
         </div>
 
         <div class="input_container">
@@ -59,7 +59,7 @@
               Please enter a more descriptive subject
             </span></label
           >
-          <input type="text" id="subject" />
+          <input type="text" id="subject" name="subject"/>
         </div>
 
         <div class="input_container">
@@ -73,11 +73,12 @@
           <p>Characters remaining: <span id="character-count">500</span></p>
         </div>
 
-        <button type="submit" class="send_button cta blue_snail" disabled="true">Send</button>
+        <button type="submit" class="send_button contact_form_submit_button cta blue_snail" disabled="true">Send</button>
       </form>
     </main>
     <footer></footer>
     <script src="js/script.js"></script>
+    <script src="js/components/form-validation.js"></script>
     <script src="js/contact.js"></script>
   </body>
 </html>
