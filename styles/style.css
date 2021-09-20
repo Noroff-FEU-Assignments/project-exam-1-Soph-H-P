@@ -58,7 +58,7 @@ textarea {
   padding: 5px;
   border-radius: 10px;
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+  box-shadow: var(--shadow);
 }
 
 .input_container {
@@ -71,6 +71,7 @@ nav > ul {
 
 button {
   border: none;
+  cursor: pointer;
 }
 
 .cta {
@@ -83,6 +84,11 @@ button {
   width: max-content;
   padding: 10px;
   border-radius: 10px;
+}
+
+.cta:hover {
+  transform: scale(1.1);
+  transition: transform 0.4s ease 0s;
 }
 
 .cta:disabled {
@@ -103,7 +109,11 @@ button {
   padding-top: 50px;
   padding-bottom: 100px;
   display: inline-block;
-  width: 100%;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   margin-bottom: -80px;
 }
 
@@ -317,7 +327,7 @@ footer ul {
     "image"
     "paragraph"
     "button";
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+  box-shadow: var(--shadow);
   background: var(--light-color);
   border-radius: 30px;
   padding: 20px;
@@ -338,17 +348,18 @@ footer ul {
 
 .post_preview {
   position: relative;
+  background-color: var(--light-color);
   min-width: 180px;
   margin: 5px;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+  box-shadow: var(--shadow);
   transition: transform 0.4s ease 0s;
 }
 
 .post_preview:hover {
   transform: scale(1.04);
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 14px;
+  box-shadow: var(--shadow);
 }
 
 .category {
@@ -378,12 +389,13 @@ footer ul {
 }
 
 .post_text {
-  padding: 6px;
+  padding: 8px;
   position: relative;
   --max-lines: 10;
   --lh: 1rem;
   max-height: calc(var(--lh) * var(--max-lines));
   overflow: hidden;
+  margin-bottom: 5px;
 }
 
 .featured_image {
@@ -444,13 +456,28 @@ footer ul {
   transform: rotate(180deg);
 }
 
+.arrow:disabled {
+  cursor: default;
+  filter: brightness(1.2) sepia(1) saturate(0);
+}
+
+.right_arrow:disabled:hover {
+  transform: rotate(180deg);
+}
+
+.left_arrow:disabled:hover {
+  transform: none;
+}
+
 .sliding_area {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-flow: column;
   overflow: scroll;
   scroll-behavior: smooth;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  margin-bottom: -20px;
+  border-radius: 30px;
 }
 
 .date {
@@ -461,10 +488,10 @@ footer ul {
   font-size: 1rem;
 }
 
-.post_text::after {
+.post_preview::after {
   content: "";
-  background: linear-gradient(0deg, rgba(250, 250, 250, 1) 20%, rgba(250, 250, 250, 0) 100%);
-  height: 2rem;
+  background: linear-gradient(0deg, rgba(250, 250, 250, 1) 15%, rgba(250, 250, 250, 0) 100%);
+  height: 3rem;
   width: 100%;
   position: absolute;
   bottom: 0px;

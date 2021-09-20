@@ -1,6 +1,6 @@
 .hero {
   padding: 0;
-  margin: 0 auto;
+  margin-bottom: 0px;
 }
 
 .category_filters_container {
@@ -8,7 +8,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   margin: 10px auto;
-  width: min-content;
+  width: max-content;
 }
 
 .category_filters {

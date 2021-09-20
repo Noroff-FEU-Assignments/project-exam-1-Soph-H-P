@@ -52,6 +52,7 @@ const fetchMorePosts = async () => {
       viewMoreButton.disabled = true;
     }
   } catch (error) {
+    postsContainer.innerHTML = "Unable to load more posts";
     console.log(error);
   }
 };

@@ -148,6 +148,11 @@
   .search_button:hover {
     filter: brightness(5.2) sepia(1) hue-rotate(170deg) saturate(6);
   }
+
+  .sliding_area {
+    overflow: hidden;
+  }
+
   .header_link_desktop {
     display: block;
     list-style-type: none;
@@ -216,6 +221,10 @@
     width: 250px;
     background: url("../icons/snail.svg") center / 250px 250px no-repeat;
     top: -16px;
+  }
+
+  .cta:hover {
+    transform: none;
   }
 
   /*--------------About page----------------*/

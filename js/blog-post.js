@@ -186,3 +186,21 @@ leftArrow.addEventListener("click", () => {
 rightArrow.addEventListener("click", () => {
   slidingArea.scrollLeft += 200;
 });
+
+//Disable arrows at each end of the scroll area
+slidingArea.addEventListener("scroll", (e) => {
+  const distanceScrolled = e.target.scrollLeft;
+  const maxScrollArea = slidingArea.scrollWidth;
+  const startOfContainer = e.target.offsetWidth;
+  const endOfContainer = maxScrollArea - startOfContainer;
+  if (distanceScrolled >= endOfContainer) {
+    rightArrow.disabled = true;
+  } else {
+    rightArrow.disabled = false;
+  }
+  if (distanceScrolled <= 0) {
+    leftArrow.disabled = true;
+  } else {
+    leftArrow.disabled = false;
+  }
+});

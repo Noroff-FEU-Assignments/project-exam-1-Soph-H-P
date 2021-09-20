@@ -34,7 +34,7 @@ const renderPreview = (postsArray) => {
     const id = post.id;
     const category = post._embedded["wp:term"][0][0].name;
     const categoryId = post.categories[0];
-    const imgSrc = post._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
+    const imgSrc = post._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url;
     const imgAlt = post._embedded["wp:featuredmedia"][0].alt_text;
     const postDate = new Date(post.date);
     const date = postDate.toDateString();
@@ -53,6 +53,7 @@ const renderCarousel = async (fetchResults, carouselTitle) => {
     titleOfCarousel.innerHTML = carouselTitle;
     slidingArea.innerHTML = postsHtml;
   } catch (error) {
+    titleOfCarousel.innerHTML = "Unable to load posts";
     console.log(error);
   }
 };

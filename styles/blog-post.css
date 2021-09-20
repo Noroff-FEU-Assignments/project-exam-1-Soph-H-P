@@ -23,8 +23,13 @@
 }
 
 .blog_post_date {
-  text-align: center;
   font-size: 0.8rem;
+  margin-left: 1rem;
+}
+
+.author_container {
+  display: flex;
+  align-items: center;
 }
 
 .author_info {
@@ -151,7 +156,7 @@ figure.wp-block-image.size-full.full_screen_view::after,
 }
 
 .comments_section {
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+  box-shadow: var(--shadow);
   padding: 5px;
   margin: 10px auto;
   width: 90%;

@@ -21,6 +21,7 @@ const renderBlogPosts = async (fetchResults) => {
     postsContainer.innerHTML = postsHtml;
     return totalNumberOfPosts;
   } catch (error) {
+    postsContainer.innerHTML = "Unable to load posts";
     console.log(error);
   }
 };

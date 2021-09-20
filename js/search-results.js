@@ -9,7 +9,6 @@ const postsUrl = `https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&se
 
 const renderSearchResults = async () => {
   const posts = await renderBlogPosts(fetchPosts(postsUrl));
-  console.log(posts);
   if (posts === "0") {
     postsContainer.innerHTML = `<h2 class="sorry_no_results">I am sorry I was unable to find anything that matched "${postSearchTerm}"</h2>`;
   }
@@ -39,4 +38,22 @@ leftArrow.addEventListener("click", () => {
 
 rightArrow.addEventListener("click", () => {
   slidingArea.scrollLeft += 200;
+});
+
+//Disable arrows at each end of the scroll area
+slidingArea.addEventListener("scroll", (e) => {
+  const distanceScrolled = e.target.scrollLeft;
+  const maxScrollArea = slidingArea.scrollWidth;
+  const startOfContainer = e.target.offsetWidth;
+  const endOfContainer = maxScrollArea - startOfContainer;
+  if (distanceScrolled >= endOfContainer) {
+    rightArrow.disabled = true;
+  } else {
+    rightArrow.disabled = false;
+  }
+  if (distanceScrolled <= 0) {
+    leftArrow.disabled = true;
+  } else {
+    leftArrow.disabled = false;
+  }
 });
