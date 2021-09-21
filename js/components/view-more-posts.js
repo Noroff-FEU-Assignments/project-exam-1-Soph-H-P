@@ -25,7 +25,7 @@ const fetchMorePosts = async () => {
       offsetPosts += postsToView;
       viewMoreButtonUrl = urlBuilder(currentCategory, offsetPosts);
       const postsRemaining = totalNumberOfPosts - postsToView;
-      const postsHtml = await renderMorePostsHtml(viewMoreButtonUrl);
+      const postsHtml = await renderMorePostsHtml(viewMoreButtonUrl + order);
       postsToView += 6;
       const loadingArea = document.querySelector(".loader_container");
       loadingArea && loadingArea.remove();
@@ -42,7 +42,7 @@ const fetchMorePosts = async () => {
       postsContainer.innerHTML += loadingHtml;
       offsetPosts = postsToView;
       viewMoreButtonUrl = urlBuilder(currentCategory, offsetPosts);
-      const postsHtml = await renderMorePostsHtml(viewMoreButtonUrl);
+      const postsHtml = await renderMorePostsHtml(viewMoreButtonUrl + order);
       postsToView += totalNumberOfPosts - postsToView;
       const loadingArea = document.querySelector(".loader_container");
       loadingArea && loadingArea.remove();

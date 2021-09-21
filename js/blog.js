@@ -2,8 +2,8 @@ const postsContainer = document.querySelector(".posts_container");
 const postsUrl = "https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&per_page=6";
 const viewMoreButton = document.querySelector(".view-more-button");
 let totalNumberOfPosts;
-
-renderBlogPosts(fetchPosts(postsUrl));
+let order = "&order=desc";
+renderBlogPosts(fetchPosts(postsUrl + order));
 
 //Filter categories buttons
 
@@ -11,7 +11,7 @@ const allCategoriesButton = document.querySelector("#all-categories");
 let currentCategory;
 
 allCategoriesButton.addEventListener("click", () => {
-  renderBlogPosts(fetchPosts(postsUrl));
+  renderBlogPosts(fetchPosts(postsUrl + order));
   currentCategory = null;
   offsetPosts = 0;
   postsToView = 6;
@@ -29,12 +29,26 @@ categoryFilterButtons.forEach((button) => {
     const categoryId = event.target.dataset.category;
     currentCategory = categoryId;
     const categoryUrl = `https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&categories=${categoryId}&per_page=6`;
-    renderBlogPosts(fetchPosts(categoryUrl));
+    renderBlogPosts(fetchPosts(categoryUrl + order));
   });
 });
 
 viewMoreButton.disabled = false;
 
-
-
 viewMoreButton.addEventListener("click", fetchMorePosts);
+
+//sortby functions----
+
+const select = document.querySelector("#sort-by");
+
+select.addEventListener("change", (e) => {
+  const value = e.target.value;
+  value === "oldest"
+    ? (order = "&order=asc")
+    : value === "alphabetical"
+    ? (order = "&order=asc&orderby=title")
+    : (order = "&order=desc");
+  renderBlogPosts(fetchPosts(postsUrl + order));
+  offsetPosts = 0;
+  postsToView = 6;
+});
