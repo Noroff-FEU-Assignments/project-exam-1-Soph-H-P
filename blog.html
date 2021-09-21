@@ -53,16 +53,16 @@
           Types of bug
         </button>
         <button class="category_filter cta" id="bug-history" data-category="2">Bug history</button>
+        <div class="sort_container">
+          <label for="sort-by">Sort by:</label>
+          <select name="sort_by" id="sort-by">
+            <option value="latest" selected>Latest</option>
+            <option value="oldest">Oldest</option>
+            <option value="alphabetical">A - Z</option>
+          </select>
+        </div>
       </div>
-      <div class="sort_container">
-        <label for="sort-by">Sort by:</label>
-        <select name="sort_by" id="sort-by">
-        <option value="latest" selected>Latest</option>
-        <option value="oldest">Oldest</option>
-        <option value="alphabetical">A - Z</option>
-      </select>
-      </div>
-      
+
       <div class="posts_container">
         <div class="loading_featured_image loader_container">
           <p>Loading...</p>
@@ -71,7 +71,7 @@
         </div>
       </div>
       <div class="view_more_container">
-        <button class="view-more-button cta">View More</button>
+        <button class="view_more_button cta">View More</button>
       </div>
     </main>
     <footer></footer>

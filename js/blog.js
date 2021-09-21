@@ -1,6 +1,6 @@
 const postsContainer = document.querySelector(".posts_container");
 const postsUrl = "https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&per_page=6";
-const viewMoreButton = document.querySelector(".view-more-button");
+const viewMoreButton = document.querySelector(".view_more_button");
 let totalNumberOfPosts;
 let order = "&order=desc";
 renderBlogPosts(fetchPosts(postsUrl + order));

@@ -54,6 +54,7 @@ const renderCarousel = async (fetchResults, carouselTitle) => {
     slidingArea.innerHTML = postsHtml;
   } catch (error) {
     titleOfCarousel.innerHTML = "Unable to load posts";
+    slidingArea.innerHTML = `<img class="error_img" src="images/slug.jpg" alt="brown slug">`;
     console.log(error);
   }
 };

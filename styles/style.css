@@ -477,7 +477,7 @@ footer ul {
   scroll-behavior: smooth;
   padding-bottom: 20px;
   margin-bottom: -20px;
-  border-radius: 30px;
+  border-radius: 30px 30px 0px 0px;
 }
 
 .date {
@@ -500,6 +500,20 @@ footer ul {
 .excerpt p {
   margin: 0;
   font-size: 0.8rem;
+}
+
+.error_img {
+  border-radius: 30px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.error_img_container {
+  grid-column: 1/-1;
+  width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  text-align: center;
 }
 
 @keyframes loading {

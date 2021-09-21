@@ -3,7 +3,7 @@ const params = new URLSearchParams(queryString);
 const postSearchTerm = params.get("search");
 document.querySelector("h1").innerHTML += ` for "${postSearchTerm}"`;
 const postsContainer = document.querySelector(".posts_container");
-const viewMoreButton = document.querySelector(".view-more-button");
+const viewMoreButton = document.querySelector(".view_more_button");
 
 const postsUrl = `https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&search="${postSearchTerm}"&per_page=6`;
 

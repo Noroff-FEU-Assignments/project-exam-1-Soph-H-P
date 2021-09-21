@@ -21,7 +21,13 @@ const renderBlogPosts = async (fetchResults) => {
     postsContainer.innerHTML = postsHtml;
     return totalNumberOfPosts;
   } catch (error) {
-    postsContainer.innerHTML = "Unable to load posts";
+    postsContainer.innerHTML = `
+    <div class="error_img_container">
+      <h2>Unable to load posts</h2>
+      <img class="error_img" src="images/slug.jpg" alt="brown slug">
+    </div>`;
+    viewMoreButton.innerHTML = "Not able to load posts";
+    viewMoreButton.disabled = true;
     console.log(error);
   }
 };
