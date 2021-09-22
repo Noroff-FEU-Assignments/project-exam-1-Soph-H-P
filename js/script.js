@@ -53,7 +53,7 @@ const headerNavDesktop = `
                 <li>Contact</li>
             </a>
             <div class="search_container">
-            <button class="search_button" aria-label="search button" ></button>
+            <button class="search_button" aria-label="search" ></button>
             
             <div class="search_input_overlay overlay hide">
                 <div class="input_container">
@@ -68,7 +68,7 @@ const headerNavDesktop = `
 
 const headerNavMobile = `
 <div class="nav_container">
-    <button class="menu_button">
+    <button class="menu_button" aria-label="menu">
         <span class="hamburger_menu_bars" id="top-bun"></span>
         <span class="hamburger_menu_bars" id="burger"></span>
         <span class="hamburger_menu_bars" id="bottom-bun"></span>
@@ -89,7 +89,7 @@ const headerNavMobile = `
             </a>
         </ul>
         <div class="search_container menu_overlay">
-            <button class="search_button" aria-label="search button"></button>
+            <button class="search_button" aria-label="search"></button>
             <div class="search_input_overlay overlay hide">
                 <div class="input_container">
                     <input class="overlay search_input" type="text"/>
