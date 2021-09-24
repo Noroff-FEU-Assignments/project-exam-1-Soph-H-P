@@ -113,8 +113,8 @@ const validateForm = () => {
 };
 
 //Check inputs of the form are valid before sending
-const handleSubmit = (event) => {
-  event.preventDefault();
+const handleSubmit = (e) => {
+  e.preventDefault();
 
   if (validateForm()) {
     //   form.reset();

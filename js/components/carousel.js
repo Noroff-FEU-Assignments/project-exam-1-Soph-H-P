@@ -12,7 +12,7 @@ const fetchPosts = async (url) => {
 
 const renderPost = (id, category, categoryId, imgSrc, imgAlt, date, title, excerpt) => {
   return `
-    <a class="post_preview" href="/blog-post.html?id=${id}">
+    <a  tabindex="0" aria-label="blog post ${title}" class="post_preview" href="/blog-post.html?id=${id}">
         <p id="color-${categoryId}" class="category">${category}</p>
         <div class="featured_image">
             <img src="${imgSrc}" alt="${imgAlt}" />

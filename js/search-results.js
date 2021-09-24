@@ -1,17 +1,18 @@
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const postSearchTerm = params.get("search");
-document.querySelector("h1").innerHTML += ` for "${postSearchTerm}"`;
+const heading = document.querySelector("h1");
 const postsContainer = document.querySelector(".posts_container");
 const viewMoreButton = document.querySelector(".view_more_button");
 
 const postsUrl = `https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&search="${postSearchTerm}"&per_page=6`;
 
 const renderSearchResults = async () => {
-  const posts = await renderBlogPosts(fetchPosts(postsUrl));
-  if (posts === "0") {
-    postsContainer.innerHTML = `<h2 class="sorry_no_results">I am sorry I was unable to find anything that matched "${postSearchTerm}"</h2>`;
-  }
+    const posts = await renderBlogPosts(fetchPosts(postsUrl));
+    posts <= 0
+      ? (heading.innerHTML = ` unable to find anything matching "${postSearchTerm}"`)
+      : (heading.innerHTML += ` for "${postSearchTerm}"`);
+  
 };
 
 renderSearchResults();

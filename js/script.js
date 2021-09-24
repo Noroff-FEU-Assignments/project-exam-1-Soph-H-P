@@ -4,7 +4,7 @@ const footer = document.querySelector("footer");
 
 const socialMediaContainer = `
     <div class="social_media_container">
-        <a class="social_media_icon" href="https://www.facebook.com/" target=”_blank”><img src="../icons/facebook.svg" alt="facebook icon"></a>
+        <a tabindex=0 class="social_media_icon" href="https://www.facebook.com/" target=”_blank”><img src="../icons/facebook.svg" alt="facebook icon"></a>
         <a class="social_media_icon" href="https://www.instagram.com/" target=”_blank”><img src="../icons/instagram.svg" alt="instagram icon"></a>
         <a class="social_media_icon" href="https://www.snapchat.com/" target=”_blank”><img src="../icons/snapchat.svg" alt="snapchat icon"></a>
         <a class="social_media_icon" href="https://www.twitter.com/" target=”_blank”><img src="../icons/twitter.svg" alt="twitter icon"></a>
@@ -34,30 +34,33 @@ let isDesktop = viewportWidth >= 800 ? true : false;
 const header = document.querySelector("header");
 
 const logo = `
-    <a href="index.html" class="logo_container">
-        <img src="icons/bug.svg" alt="bug icon">
-        <p class="logo_text">Bugs</p>
+    <a tabindex="0" href="index.html" aria-label="home" class="logo_container">
+        <img src="icons/bug.svg" alt="bug icon">Bugs
+        
     </a>
 `;
 
 const headerNavDesktop = `
     <nav class="desktop_nav">
         <ul>
-            <a class="header_link_desktop" href="about.html">
-                <li>About</li>
+            <a  class="header_link_desktop home" href="index.html">
+                <li tabindex="0">Home</li>
+            </a> 
+            <a class="header_link_desktop about" href="about.html">
+                <li tabindex="0">About</li>
             </a>
-            <a class="header_link_desktop" href="blog.html">
-                <li>Blog</li>
+            <a class="header_link_desktop blog" href="blog.html">
+                <li tabindex="0">Blog</li>
             </a>
-            <a class="header_link_desktop" href="contact.html">
-                <li>Contact</li>
+            <a class="header_link_desktop contact" href="contact.html">
+                <li tabindex="0">Contact</li>
             </a>
             <div class="search_container">
             <button class="search_button" aria-label="search" ></button>
             
             <div class="search_input_overlay overlay hide">
                 <div class="input_container">
-                    <input class="overlay search_input" type="text" />
+                    <input class="overlay search_input" id="search" type="text" />
                     <label class="overlay" for="search">Search...</label>
                 </div> 
           </div>
@@ -75,24 +78,24 @@ const headerNavMobile = `
     </button>
     <nav class="mobile_nav menu_overlay">
         <ul>
-            <a class="header_link_mobile menu_overlay" href="index.html">
-            <li>Home</li>
+            <a class="header_link_mobile menu_overlay home" href="index.html">
+            <li tabindex="0">Home</li>
             </a>
-            <a class="header_link_mobile menu_overlay" href="about.html">
-            <li>About</li>
+            <a class="header_link_mobile menu_overlay about" href="about.html">
+            <li tabindex="0">About</li>
             </a>
-            <a class="header_link_mobile menu_overlay" href="blog.html">
-            <li>Blog</li>
+            <a class="header_link_mobile menu_overlay blog" href="blog.html">
+            <li tabindex="0">Blog</li>
             </a>
-            <a class="header_link_mobile menu_overlay" href="contact.html">
-            <li>Contact</li>
+            <a class="header_link_mobile menu_overlay contact" href="contact.html">
+            <li tabindex="0">Contact</li>
             </a>
         </ul>
         <div class="search_container menu_overlay">
             <button class="search_button" aria-label="search"></button>
             <div class="search_input_overlay overlay hide">
                 <div class="input_container">
-                    <input class="overlay search_input" type="text"/>
+                    <input class="overlay search_input" id="search" type="text"/>
                     <label class="overlay" for="search">Search...</label>
                 </div> 
             </div>
@@ -136,16 +139,22 @@ const addSearchFunction = () => {
   const searchInput = document.querySelector(".search_input");
 
   searchButton.addEventListener("click", (e) => {
-    const overlay = e.target.nextElementSibling;
+    const overlay = document.querySelector(".search_input_overlay");
+    // const overlay = e.target.nextElementSibling;
     overlay.classList.contains("hide")
       ? (overlay.classList.remove("hide"), searchInput.focus())
       : overlay.classList.add("hide");
   });
 
   searchInput.addEventListener("keyup", (e) => {
+    const overlay = document.querySelector(".search_input_overlay");
     const searchInput = e.target.value;
     const key = e.key;
-    if (key === "Enter") window.location.href = `/search-results.html?search=${searchInput}`;
+    if (key === "Enter" && e.target.value.length > 0) {
+      window.location.href = `/search-results.html?search=${searchInput}`;
+    }
+
+    if (key === "Escape") overlay.classList.add("hide");
   });
 };
 
@@ -171,3 +180,66 @@ window.addEventListener("click", (e) => {
 isDesktop
   ? ((header.innerHTML = logo + headerNavDesktop), addSearchFunction())
   : ((header.innerHTML = logo + headerNavMobile), addBurgerFunctions(), addSearchFunction());
+
+//Underline current page
+switch (document.title) {
+  case "Home | Bug Blog":
+    const home = document.querySelector(".home");
+    home.style.fontWeight = "bold";
+    home.style.borderBottom = "var(--color-2) 4px dotted";
+    break;
+  case "About | Bug Blog":
+    const about = document.querySelector(".about");
+    about.style.fontWeight = "bold";
+    about.style.borderBottom = "var(--color-2) 4px dotted";
+    break;
+  case "Contact | Bug Blog":
+    const contact = document.querySelector(".contact");
+    contact.style.fontWeight = "bold";
+    contact.style.borderBottom = "var(--color-2) 4px dotted";
+    break;
+  case "Blog | Bug Blog":
+    const blog = document.querySelector(".blog");
+    blog.style.fontWeight = "bold";
+    blog.style.borderBottom = "var(--color-2) 4px dotted";
+    break;
+  case "Blog Post | Bug Blog":
+    const blogPost = document.querySelector(".blog");
+    blogPost.style.fontWeight = "bold";
+    blogPost.style.borderBottom = "var(--color-2) 4px dotted";
+    break;
+  default:
+    break;
+}
+
+//---------------title bugs
+
+const titleBugs = document.querySelectorAll(".title_bug");
+
+const moveBug = (bug) => {
+  const randVerticalPosition = Math.floor(Math.random() * 101);
+  const randHorizontalPosition = Math.floor(Math.random() * 101);
+  const randRotate = Math.floor(Math.random() * 361);
+  if (
+    bug.style.background !==
+    `rgba(0, 0, 0, 0) url("../icons/bugsplat.svg") no-repeat scroll center center / 20px 20px`
+  ) {
+    bug.style.top = `${randVerticalPosition}%`;
+    bug.style.left = `${randHorizontalPosition}%`;
+    bug.style.transform = `rotate(${randRotate}deg)`;
+  }
+};
+
+const squashBug = (bug) => {
+  bug.style.background = `url("../icons/bugsplat.svg") center / 20px 20px no-repeat`;
+};
+titleBugs.forEach((bug) => {
+  if (isDesktop) {
+    bug.addEventListener("mouseover", (e) => {
+      moveBug(e.target);
+    });
+  }
+  bug.addEventListener("click", (e) => {
+    squashBug(e.target);
+  });
+});

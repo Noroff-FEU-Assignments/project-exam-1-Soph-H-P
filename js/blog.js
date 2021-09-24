@@ -23,10 +23,10 @@ let viewMoreButtonUrl;
 
 const categoryFilterButtons = document.querySelectorAll(".category_filter");
 categoryFilterButtons.forEach((button) => {
-  button.addEventListener("click", (event) => {
+  button.addEventListener("click", (e) => {
     postsToView = 6;
     offsetPosts = 0;
-    const categoryId = event.target.dataset.category;
+    const categoryId = e.target.dataset.category;
     currentCategory = categoryId;
     const categoryUrl = `https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&categories=${categoryId}&per_page=6`;
     renderBlogPosts(fetchPosts(categoryUrl + order));

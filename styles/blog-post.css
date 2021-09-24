@@ -107,7 +107,7 @@ figure.wp-block-image.size-full.full_screen_view,
   padding: 10px;
   color: var(--light-color);
   font-size: 1rem;
-  z-index: 500;
+  z-index: 100;
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
   display: flex;
   flex-direction: column;

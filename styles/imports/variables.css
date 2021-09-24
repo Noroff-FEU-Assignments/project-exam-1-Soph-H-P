@@ -9,6 +9,12 @@
   --color-4: #3661bf;
   --color-5: #213357;
   --color-6: #6d3d67;
+  --blue-filter: brightness(0.6) sepia(1) hue-rotate(170deg) saturate(6);
+  --green-filter: brightness(0.6) sepia(1) hue-rotate(100deg) saturate(2);
+  --purple-filter: brightness(0.6) sepia(1) hue-rotate(225deg) saturate(3);
+  --dark-purple-filter: brightness(0.3) sepia(1) hue-rotate(230deg) saturate(5);
+  --dark-blue-filter: brightness(0.3) sepia(1) hue-rotate(170deg) saturate(5);
+
   --modal-color: #132023e7;
   --error-color: #ce3333;
   --shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;

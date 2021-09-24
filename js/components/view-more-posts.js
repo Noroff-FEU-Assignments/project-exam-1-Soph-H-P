@@ -44,7 +44,7 @@ const fetchMorePosts = async () => {
       viewMoreButtonUrl = urlBuilder(currentCategory, offsetPosts);
       const postsHtml = await renderMorePostsHtml(viewMoreButtonUrl + order);
       postsToView += totalNumberOfPosts - postsToView;
-      const loadingArea = document.querySelector(".loader_container");
+      const includesingArea = document.querySelector(".loader_container");
       loadingArea && loadingArea.remove();
       postsContainer.innerHTML += postsHtml;
       postsContainer.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }, false);

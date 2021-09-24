@@ -83,6 +83,7 @@ const renderBlogPost = async () => {
     `;
     } else {
       const renderComments = async () => {
+        commentsContainer.innerHTML = "";
         comments.forEach((comment) => {
           const commentAuthor = comment.author_name;
           const commentId = comment.id;
@@ -156,6 +157,11 @@ renderBlogPost();
 
 //Allow Users to Comment-----------------
 const handleUserComment = async () => {
+  sendSuccess.innerHTML = `<div class="loading_featured_image loader_container">
+  <p>Loading...</p>
+  <img class="lil_bug loading" src="icons/bug.svg" alt="" />
+  <img class="magnifying_glass loading" src="icons/search.svg" alt="" />
+  </div>`;
   const postCommentUrl = `https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/comments`;
   const userComment = JSON.stringify({
     post: postId,
@@ -172,7 +178,7 @@ const handleUserComment = async () => {
       body: userComment,
     });
     response.ok
-      ? form.reset()
+      ? (form.reset(), renderBlogPost(), (sendSuccess.innerHTML = "Your comment has been sent!"))
       : ((sendSuccess.innerHTML = "Commenting not possible at this time"),
         (sendSuccess.style.backgroundColor = "var(--error-color)"));
   } catch (error) {

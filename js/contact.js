@@ -1,9 +1,9 @@
 const contactForm = document.querySelector(".contact_form");
 
-const handleContactFormSubmit = async (event) => {
-  event.preventDefault();
+const handleContactFormSubmit = async (e) => {
+  e.preventDefault();
 
-  const formData = event.target;
+  const formData = e.target;
 
   const sendFormUrl = formData.action;
   const method = formData.method;
