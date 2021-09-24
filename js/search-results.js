@@ -8,11 +8,11 @@ const viewMoreButton = document.querySelector(".view_more_button");
 const postsUrl = `https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&search="${postSearchTerm}"&per_page=6`;
 
 const renderSearchResults = async () => {
-    const posts = await renderBlogPosts(fetchPosts(postsUrl));
-    posts <= 0
-      ? (heading.innerHTML = ` unable to find anything matching "${postSearchTerm}"`)
-      : (heading.innerHTML += ` for "${postSearchTerm}"`);
-  
+  const posts = await renderBlogPosts(fetchPosts(postsUrl));
+  posts <= 0
+    ? ((heading.innerHTML = ` unable to find anything matching "${postSearchTerm}"`),
+      viewMoreButton.remove())
+    : (heading.innerHTML += ` for "${postSearchTerm}"`);
 };
 
 renderSearchResults();
@@ -47,6 +47,6 @@ slidingArea.addEventListener("scroll", (e) => {
   const maxScrollArea = slidingArea.scrollWidth;
   const startOfContainer = e.target.offsetWidth;
   const endOfContainer = maxScrollArea - startOfContainer;
-  distanceScrolled >= endOfContainer ? rightArrow.disabled = true : rightArrow.disabled = false;
-  distanceScrolled <= 0 ? leftArrow.disabled = true : leftArrow.disabled = false;
+  distanceScrolled >= endOfContainer ? (rightArrow.disabled = true) : (rightArrow.disabled = false);
+  distanceScrolled <= 0 ? (leftArrow.disabled = true) : (leftArrow.disabled = false);
 });

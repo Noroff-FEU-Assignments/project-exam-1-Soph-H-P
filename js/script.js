@@ -60,8 +60,8 @@ const headerNavDesktop = `
             
             <div class="search_input_overlay overlay hide">
                 <div class="input_container">
-                    <input class="overlay search_input" id="search" type="text" />
                     <label class="overlay" for="search">Search...</label>
+                    <input class="overlay search_input" id="search" type="text" />
                 </div> 
           </div>
         </div>
@@ -95,8 +95,8 @@ const headerNavMobile = `
             <button class="search_button" aria-label="search"></button>
             <div class="search_input_overlay overlay hide">
                 <div class="input_container">
-                    <input class="overlay search_input" id="search" type="text"/>
-                    <label class="overlay" for="search">Search...</label>
+                  <label class="overlay" for="search">Search...</label>
+                  <input class="overlay search_input" id="search" type="text"/>
                 </div> 
             </div>
         </div>

@@ -22,7 +22,6 @@ const renderBlogPost = async () => {
     blogPostCategory.innerHTML = category.name;
     const postDate = new Date(blogPost.date);
     const date = postDate.toDateString();
-    blogPostDate.innerHTML = date;
     const content = blogPost.content.rendered;
     blogPostContent.innerHTML = content;
     const author = blogPost._embedded.author[0].name;
@@ -31,7 +30,11 @@ const renderBlogPost = async () => {
       <div class="author_img" >
         <img src="${authorImg}" alt="Me the author">
       </div>
-      <p>By ${author}</p>
+      <div>
+        <p>By ${author}</p>
+        <p class="blog_post_date">Published: ${date}</p>
+      </div>
+      
   `;
     blogPostAuthor.innerHTML = authorHtml;
 
@@ -45,14 +48,19 @@ const renderBlogPost = async () => {
     images.forEach((image) => {
       image.addEventListener("click", (e) => {
         const element = e.target.tagName;
+        if (image.classList.contains("full_screen_view") && element !== "IMG") {
+          image.classList.remove("full_screen_view");
+          document.querySelector(".close_modal_button").remove();
+        } else {
+          image.classList.add("full_screen_view");
+          image.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
-        image.classList.contains("full_screen_view") && element !== "IMG"
-          ? (image.classList.remove("full_screen_view"),
-            document.querySelector(".close_modal_button").remove())
-          : (image.classList.add("full_screen_view"),
-            image.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }),
-            (e.target.style.cursor = `default`),
-            (image.innerHTML += `<button class="close_modal_button" aria-label="close full image view"></button>`));
+          e.target.style.cursor = `default`;
+
+          if (!document.querySelector(".close_modal_button")) {
+            image.innerHTML += `<button class="close_modal_button" aria-label="close full image view"></button>`;
+          }
+        }
       });
       image.addEventListener("mouseover", (e) => {
         const element = e.target.tagName;
@@ -213,7 +221,6 @@ slidingArea.addEventListener("scroll", (e) => {
   const maxScrollArea = slidingArea.scrollWidth;
   const startOfContainer = e.target.offsetWidth;
   const endOfContainer = maxScrollArea - startOfContainer;
-  distanceScrolled >= endOfContainer ? rightArrow.disabled = true : rightArrow.disabled = false;
-  distanceScrolled <= 0 ? leftArrow.disabled = true : leftArrow.disabled = false;
-  
+  distanceScrolled >= endOfContainer ? (rightArrow.disabled = true) : (rightArrow.disabled = false);
+  distanceScrolled <= 0 ? (leftArrow.disabled = true) : (leftArrow.disabled = false);
 });

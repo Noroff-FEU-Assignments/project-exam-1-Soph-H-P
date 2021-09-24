@@ -2,6 +2,7 @@
   --heading-font: "Averia Libre", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --paragraph-font: "Quicksand", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   --dark-color: #132023;
+  --mid-color: #acb4b6;
   --light-color: #fafafa;
   --color-1: #56c78f;
   --color-2: #5cd1f7;
@@ -14,7 +15,6 @@
   --purple-filter: brightness(0.6) sepia(1) hue-rotate(225deg) saturate(3);
   --dark-purple-filter: brightness(0.3) sepia(1) hue-rotate(230deg) saturate(5);
   --dark-blue-filter: brightness(0.3) sepia(1) hue-rotate(170deg) saturate(5);
-
   --modal-color: #132023e7;
   --error-color: #ce3333;
   --shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;

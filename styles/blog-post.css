@@ -25,7 +25,7 @@
 
 .blog_post_date {
   font-size: 0.8rem;
-  margin-left: 1rem;
+  margin-top: 0;
 }
 
 .author_container {
@@ -35,6 +35,10 @@
 
 .author_info {
   display: flex;
+  align-items: center;
+}
+.author_info p {
+  margin: 0;
 }
 
 .author_img {
@@ -65,12 +69,13 @@ figure.wp-block-image.size-full {
 
 figure.wp-block-image.size-large img,
 figure.wp-block-image.size-full img {
-  width: auto;
+  width: 100%;
   max-width: 1200px;
   height: auto;
   max-height: 70vh;
   border-radius: 30px;
   align-self: center;
+  object-fit: cover;
 }
 
 
@@ -131,7 +136,7 @@ figure.wp-block-image.size-full.full_screen_view img {
   width: 44px;
   height: 44px;
   position: absolute;
-  top: 100px;
+  top: 25%;
   right: 50px;
 }
 
