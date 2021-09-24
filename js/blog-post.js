@@ -47,10 +47,12 @@ const renderBlogPost = async () => {
         const element = e.target.tagName;
 
         image.classList.contains("full_screen_view") && element !== "IMG"
-          ? image.classList.remove("full_screen_view")
+          ? (image.classList.remove("full_screen_view"),
+            document.querySelector(".close_modal_button").remove())
           : (image.classList.add("full_screen_view"),
             image.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }),
-            (e.target.style.cursor = `default`));
+            (e.target.style.cursor = `default`),
+            (image.innerHTML += `<button class="close_modal_button" aria-label="close full image view"></button>`));
       });
       image.addEventListener("mouseover", (e) => {
         const element = e.target.tagName;
@@ -104,17 +106,15 @@ const renderBlogPost = async () => {
           const commentContent = comment.content.rendered;
           const commentAuthorImg = () => {
             let commentAuthorImage;
-            if (commentId <= 3) {
-              commentAuthorImage = "../icons/greenbug.svg";
-            } else if (commentId > 3 && commentId <= 6) {
-              commentAuthorImage = "../icons/darkbluebug.svg";
-            } else if (commentId > 6 && commentId <= 9) {
-              commentAuthorImage = "../icons/lightbluebug.svg";
-            } else if (commentId > 9 && commentId <= 12) {
-              commentAuthorImage = "../icons/purplebug.svg";
-            } else {
-              commentAuthorImage = "../icons/blackbug.svg";
-            }
+            commentId <= 3
+              ? (commentAuthorImage = "../icons/greenbug.svg")
+              : commentId > 3 && commentId <= 6
+              ? (commentAuthorImage = "../icons/darkbluebug.svg")
+              : commentId > 6 && commentId <= 9
+              ? (commentAuthorImage = "../icons/lightbluebug.svg")
+              : commentId > 9 && commentId <= 12
+              ? (commentAuthorImage = "../icons/purplebug.svg")
+              : (commentAuthorImage = "../icons/blackbug.svg");
             return commentAuthorImage;
           };
           const commentHtml = `
@@ -213,14 +213,7 @@ slidingArea.addEventListener("scroll", (e) => {
   const maxScrollArea = slidingArea.scrollWidth;
   const startOfContainer = e.target.offsetWidth;
   const endOfContainer = maxScrollArea - startOfContainer;
-  if (distanceScrolled >= endOfContainer) {
-    rightArrow.disabled = true;
-  } else {
-    rightArrow.disabled = false;
-  }
-  if (distanceScrolled <= 0) {
-    leftArrow.disabled = true;
-  } else {
-    leftArrow.disabled = false;
-  }
+  distanceScrolled >= endOfContainer ? rightArrow.disabled = true : rightArrow.disabled = false;
+  distanceScrolled <= 0 ? leftArrow.disabled = true : leftArrow.disabled = false;
+  
 });

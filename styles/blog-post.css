@@ -1,5 +1,6 @@
 @import "./imports/variables.css";
 
+
 .blog_post_featured_image_container {
   width: 70%;
   max-height: 400px;
@@ -126,16 +127,18 @@ figure.wp-block-image.size-full.full_screen_view img {
   width: auto;
 }
 
-figure.wp-block-image.size-large.full_screen_view::after,
-figure.wp-block-image.size-full.full_screen_view::after,
-.blog_post_featured_image_container.full_screen_view::after {
-  content: "";
+.close_modal_button {
   background: url("../icons/close.svg") center / 44px 44px no-repeat;
   width: 44px;
   height: 44px;
   position: absolute;
-  top: 50px;
+  top: 100px;
   right: 50px;
+}
+
+.close_modal_button:hover {
+  transition: transform cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: scale(1.2);
 }
 
 .comments .form_container {

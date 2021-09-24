@@ -1,6 +1,12 @@
 @import "./imports/variables.css";
 
 @media (min-width: 500px) {
+
+  .hero {
+  padding-top: 30px;
+  padding-bottom: 100px;
+  }
+
   .menu_button {
     top: 10px;
   }
