@@ -60,27 +60,25 @@ figure.wp-block-image.size-full {
   object-fit: cover;
   margin: 30px auto;
   position: relative;
+  text-align: center;
 }
 
 figure.wp-block-image.size-large img,
 figure.wp-block-image.size-full img {
-  width: 100%;
+  width: auto;
   max-width: 1200px;
   height: auto;
-  max-height: 80vh;
+  max-height: 70vh;
   border-radius: 30px;
   align-self: center;
 }
 
-figure.wp-block-image.size-large:hover,
-figure.wp-block-image.size-full:hover {
-  cursor: url("../icons/maximise.svg") 30 30, pointer;
-}
 
 figure.wp-block-image.size-large figcaption,
 figure.wp-block-image.size-full figcaption {
   max-width: 800px;
   align-self: center;
+  text-align: left;
 }
 
 .blog_post_content a {
@@ -125,6 +123,7 @@ figure.wp-block-image.size-full.full_screen_view,
 figure.wp-block-image.size-large.full_screen_view img,
 figure.wp-block-image.size-full.full_screen_view img {
   width: auto;
+  
 }
 
 .close_modal_button {

@@ -135,7 +135,7 @@ button {
   width: 15px;
   height: 15px;
   background: url("../icons/bug.svg") center / 15px 15px no-repeat;
-  transition: all 0.7s ease 0s;;
+  transition: all 0.7s ease 0s;
 }
 
 .bug_one {
@@ -153,7 +153,6 @@ button {
   height: 18px;
   background: url("../icons/bug.svg") center / 18px 18px no-repeat;
 }
-
 
 .right_bugs .bug_one {
   left: 10%;
@@ -228,7 +227,6 @@ header {
   left: 10vw;
   bottom: -100%;
   transition: bottom 0.4s ease 0s;
-  
 }
 
 .nav_container.menu_open > .mobile_nav {
@@ -339,10 +337,9 @@ header {
 }
 
 .logo_container:hover,
-.logo_container:focus{
+.logo_container:focus {
   filter: brightness(0.6) sepia(1) hue-rotate(170deg) saturate(6);
 }
-
 
 /*--------------Footer Styles---------------*/
 footer {

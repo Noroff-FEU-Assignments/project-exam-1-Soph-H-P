@@ -117,7 +117,6 @@ const handleSubmit = (e) => {
   e.preventDefault();
 
   if (validateForm()) {
-    //   form.reset();
     button.disabled = true;
     characterCount.innerHTML = 500;
     sendSuccess.style.display = "block";

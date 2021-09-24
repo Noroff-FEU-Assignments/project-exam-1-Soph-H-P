@@ -8,7 +8,8 @@ renderBlogPosts(fetchPosts(postsUrl + order));
 //Filter categories buttons
 
 const allCategoriesButton = document.querySelector("#all-categories");
-let currentCategory;
+let currentCategory = null;
+let categoryUrl;
 
 allCategoriesButton.addEventListener("click", () => {
   renderBlogPosts(fetchPosts(postsUrl + order));
@@ -23,12 +24,12 @@ let viewMoreButtonUrl;
 
 const categoryFilterButtons = document.querySelectorAll(".category_filter");
 categoryFilterButtons.forEach((button) => {
-  button.addEventListener("click", (e) => {
+  button.addEventListener("click", (event) => {
     postsToView = 6;
     offsetPosts = 0;
-    const categoryId = e.target.dataset.category;
+    const categoryId = event.target.dataset.category;
     currentCategory = categoryId;
-    const categoryUrl = `https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&categories=${categoryId}&per_page=6`;
+    categoryUrl = `https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&categories=${categoryId}&per_page=6`;
     renderBlogPosts(fetchPosts(categoryUrl + order));
   });
 });
@@ -48,7 +49,11 @@ select.addEventListener("change", (e) => {
     : value === "alphabetical"
     ? (order = "&order=asc&orderby=title")
     : (order = "&order=desc");
-  renderBlogPosts(fetchPosts(postsUrl + order));
+  currentCategory
+    ? renderBlogPosts(fetchPosts(categoryUrl + order))
+    : renderBlogPosts(fetchPosts(postsUrl + order));
+
   offsetPosts = 0;
   postsToView = 6;
+  console.log(currentCategory);
 });
