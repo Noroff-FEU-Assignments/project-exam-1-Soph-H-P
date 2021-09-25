@@ -30,7 +30,11 @@ const fetchMorePosts = async () => {
       const loadingArea = document.querySelector(".loader_container");
       loadingArea && loadingArea.remove();
       postsContainer.innerHTML += postsHtml;
-      postsContainer.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }, false);
+      isDesktop &&
+        postsContainer.scrollIntoView(
+          { behavior: "smooth", block: "end", inline: "nearest" },
+          false
+        );
       viewMoreButton.innerHTML = `View ${postsRemaining - 6} more`;
     } else if (totalNumberOfPosts < postsToView + 6 && totalNumberOfPosts > postsToView) {
       postsContainer.innerHTML += loadingHtml;
@@ -41,7 +45,11 @@ const fetchMorePosts = async () => {
       const loadingArea = document.querySelector(".loader_container");
       loadingArea && loadingArea.remove();
       postsContainer.innerHTML += postsHtml;
-      postsContainer.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }, false);
+      isDesktop &&
+        postsContainer.scrollIntoView(
+          { behavior: "smooth", block: "end", inline: "nearest" },
+          false
+        );
       viewMoreButton.innerHTML = `No more posts`;
       viewMoreButton.disabled = true;
     }
