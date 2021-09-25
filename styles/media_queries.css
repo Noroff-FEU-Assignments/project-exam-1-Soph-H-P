@@ -91,6 +91,10 @@
   .close_modal_button {
     top: 10%;
   }
+
+  .search_input_overlay {
+    bottom: 25vh;
+  }
 }
 
 @media (min-width: 800px) {
