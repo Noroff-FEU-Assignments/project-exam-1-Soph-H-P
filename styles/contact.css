@@ -23,6 +23,8 @@ textarea {
 
 .form_container > .input_container > input,
 .form_container > .input_container > textarea {
+  margin-top: 5px;
+  margin-bottom: 15px;
   width: 100%;
 }
 
