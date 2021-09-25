@@ -216,14 +216,12 @@ switch (document.title) {
 
 const titleBugs = document.querySelectorAll(".title_bug");
 
-const moveBug = (bug) => {
+const moveBug = (bug, background) => {
   const randVerticalPosition = Math.floor(Math.random() * 101);
   const randHorizontalPosition = Math.floor(Math.random() * 101);
   const randRotate = Math.floor(Math.random() * 361);
-  if (
-    bug.style.background !==
-    `rgba(0, 0, 0, 0) url("../icons/bugsplat.svg") no-repeat scroll center center / 20px 20px`
-  ) {
+
+  if (!background.includes("bugsplat")) {
     bug.style.top = `${randVerticalPosition}%`;
     bug.style.left = `${randHorizontalPosition}%`;
     bug.style.transform = `rotate(${randRotate}deg)`;
@@ -236,7 +234,7 @@ const squashBug = (bug) => {
 titleBugs.forEach((bug) => {
   if (isDesktop) {
     bug.addEventListener("mouseover", (e) => {
-      moveBug(e.target);
+      moveBug(e.target, e.target.style.background);
     });
   }
   bug.addEventListener("click", (e) => {

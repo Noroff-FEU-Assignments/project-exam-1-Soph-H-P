@@ -18,7 +18,7 @@
   font-size: 1rem;
   border-radius: 10px;
   transition: all 0.4s ease 0s;
-  flex-grow: 1;
+  width: 180px;
 }
 
 .category_filter:hover,

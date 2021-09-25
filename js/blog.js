@@ -55,5 +55,4 @@ select.addEventListener("change", (e) => {
 
   offsetPosts = 0;
   postsToView = 6;
-  console.log(currentCategory);
 });
