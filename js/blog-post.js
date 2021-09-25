@@ -167,8 +167,8 @@ renderBlogPost();
 const handleUserComment = async () => {
   sendSuccess.innerHTML = `<div class="loading_featured_image loader_container">
   <p>Loading...</p>
-  <img class="lil_bug loading" src="icons/bug.svg" alt="" />
-  <img class="magnifying_glass loading" src="icons/search.svg" alt="" />
+  <img class="lil_bug loading" src="icons/bug.svg" alt="small white bug" />
+  <img class="magnifying_glass loading" src="icons/search.svg" alt="small white magnifying glass" />
   </div>`;
   const postCommentUrl = `https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/comments`;
   const userComment = JSON.stringify({

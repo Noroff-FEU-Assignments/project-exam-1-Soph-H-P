@@ -22,7 +22,6 @@ slidingArea.addEventListener("scroll", (e) => {
   const maxScrollArea = slidingArea.scrollWidth;
   const startOfContainer = e.target.offsetWidth;
   const endOfContainer = maxScrollArea - startOfContainer;
-  distanceScrolled >= endOfContainer ? rightArrow.disabled = true : rightArrow.disabled = false;
-  distanceScrolled <= 0 ? leftArrow.disabled = true : leftArrow.disabled = false;
-  
+  distanceScrolled >= endOfContainer ? (rightArrow.disabled = true) : (rightArrow.disabled = false);
+  distanceScrolled <= 0 ? (leftArrow.disabled = true) : (leftArrow.disabled = false);
 });

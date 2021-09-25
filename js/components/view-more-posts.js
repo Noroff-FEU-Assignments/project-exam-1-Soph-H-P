@@ -31,20 +31,14 @@ const fetchMorePosts = async () => {
       loadingArea && loadingArea.remove();
       postsContainer.innerHTML += postsHtml;
       postsContainer.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }, false);
-      if (totalNumberOfPosts >= postsToView + 6) {
-        viewMoreButton.innerHTML = `View ${postsRemaining} more`;
-      }
-      if (postsRemaining <= 6) {
-        viewMoreButton.innerHTML = `No more posts`;
-        viewMoreButton.disabled = true;
-      }
+      viewMoreButton.innerHTML = `View ${postsRemaining - 6} more`;
     } else if (totalNumberOfPosts < postsToView + 6 && totalNumberOfPosts > postsToView) {
       postsContainer.innerHTML += loadingHtml;
       offsetPosts = postsToView;
       viewMoreButtonUrl = urlBuilder(currentCategory, offsetPosts);
       const postsHtml = await renderMorePostsHtml(viewMoreButtonUrl + order);
       postsToView += totalNumberOfPosts - postsToView;
-      const includesingArea = document.querySelector(".loader_container");
+      const loadingArea = document.querySelector(".loader_container");
       loadingArea && loadingArea.remove();
       postsContainer.innerHTML += postsHtml;
       postsContainer.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }, false);

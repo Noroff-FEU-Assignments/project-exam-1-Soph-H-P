@@ -1,7 +1,7 @@
 const loadingHtml = `<div class="loading_featured_image loader_container">
 <p>Loading...</p>
-<img class="lil_bug loading" src="icons/bug.svg" alt="" />
-<img class="magnifying_glass loading" src="icons/search.svg" alt="" />
+<img class="lil_bug loading" src="icons/bug.svg" alt="small white bug" />
+<img class="magnifying_glass loading" src="icons/search.svg" alt="small white magnifying glass" />
 </div>`;
 
 const renderBlogPosts = async (fetchResults) => {
@@ -10,7 +10,7 @@ const renderBlogPosts = async (fetchResults) => {
     const results = await fetchResults;
     const postsArray = results.results;
     totalNumberOfPosts = results.totalNumberOfPosts;
-    totalNumberOfPosts > 6 &&
+    totalNumberOfPosts >= 6 &&
       ((viewMoreButton.innerHTML = "View more"), (viewMoreButton.disabled = false));
     totalNumberOfPosts < 6 &&
       ((viewMoreButton.innerHTML = "No more posts"), (viewMoreButton.disabled = true));
