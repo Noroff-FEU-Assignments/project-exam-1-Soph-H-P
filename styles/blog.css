@@ -18,7 +18,8 @@
   font-size: 1rem;
   border-radius: 10px;
   transition: all 0.4s ease 0s;
-  width: 180px;
+  min-width: 180px;
+  height: 3rem;
 }
 
 .category_filter:hover,
