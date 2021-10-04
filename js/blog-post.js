@@ -166,7 +166,7 @@ renderBlogPost();
 //Allow Users to Comment-----------------
 const handleUserComment = async () => {
   sendSuccess.innerHTML = `<div class="loading_featured_image loader_container">
-  <p>Loading...</p>
+  <p>Sending...</p>
   <img class="lil_bug loading" src="icons/bug.svg" alt="small white bug" />
   <img class="magnifying_glass loading" src="icons/search.svg" alt="small white magnifying glass" />
   </div>`;

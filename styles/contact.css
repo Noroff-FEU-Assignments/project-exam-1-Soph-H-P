@@ -54,10 +54,24 @@ button {
 
 .send-success {
   display: none;
+  position: relative;
   font-size: 2rem;
   border-radius: 20px;
   background-color: var(--color-1);
   color: var(--light-color);
   padding: 20px 40px;
   box-shadow: var(--shadow);
+}
+
+.loader_container {
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  width: 180px;
+  height: 180px;
+  margin: 80px auto;
+  color: var(--light-color);
 }
