@@ -423,7 +423,7 @@ footer ul {
 
 .post_preview {
   position: relative;
-  background-color: var(--color-1);
+  background-color: var(--light-color);
   min-width: 180px;
   margin: 5px;
   border-radius: 20px;
@@ -487,7 +487,7 @@ footer ul {
 .loading_featured_image {
   background: var(--color-1);
   height: 200px;
-  width: 200px;
+  /* width: 200px; */
   grid-column: 1/-1;
 }
 
@@ -594,13 +594,13 @@ footer ul {
 
 @keyframes loading {
   0% {
-    left: 0%;
+    left: 0px;
   }
   50% {
-    left: 65%;
+    left: 120px;
   }
   100% {
-    left: 0%;
+    left: 0px;
   }
 }
 
