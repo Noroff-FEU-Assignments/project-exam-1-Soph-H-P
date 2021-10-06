@@ -53,9 +53,9 @@ const renderCarousel = async (fetchResults, carouselTitle) => {
     titleOfCarousel.innerHTML = carouselTitle;
     slidingArea.innerHTML = postsHtml;
     const postPreviewCarousel = document.querySelectorAll(".post_preview");
-    postPreviewCarousel.forEach(postPreview => {
-      postPreview.style.backgroundColor = "var(--light-color)"
-    })
+    postPreviewCarousel.forEach((postPreview) => {
+      postPreview.style.backgroundColor = "var(--light-color)";
+    });
   } catch (error) {
     titleOfCarousel.innerHTML = "Unable to load posts";
     slidingArea.innerHTML = `<img class="error_img" src="images/slug.jpg" alt="brown slug">`;

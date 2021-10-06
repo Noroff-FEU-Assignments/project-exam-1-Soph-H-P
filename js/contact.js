@@ -32,6 +32,7 @@ const handleContactFormSubmit = async (e) => {
 contactForm.addEventListener("submit", handleContactFormSubmit);
 
 //Carousel-----------------
-const postsUrl = "https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&orderby=rand&per_page=8";
+const postsUrl =
+  "https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&orderby=rand&per_page=8";
 
 renderCarousel(fetchPosts(postsUrl), "Something to read?");
