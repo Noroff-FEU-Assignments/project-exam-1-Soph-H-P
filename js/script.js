@@ -13,13 +13,13 @@ const socialMediaContainer = `
 
 const footerLinks = `
     <ul class="footer_links">
-        <a class="footer_link" href="about.html">
+        <a class="footer_link" id="about-link" href="about.html">
             <li>About</li>
         </a>
-        <a class="footer_link" href="blog.html">
+        <a class="footer_link" id="blog-link" href="blog.html">
             <li>Blog</li>
         </a>
-        <a class="footer_link" href="contact.html">
+        <a class="footer_link" id="contact-link" href="contact.html">
             <li>Contact</li>
         </a>
     </ul>
@@ -241,3 +241,72 @@ titleBugs.forEach((bug) => {
     squashBug(e.target);
   });
 });
+
+//carousel
+const slidingArea = document.querySelector(".sliding_area");
+const titleOfCarousel = document.querySelector(".carousel_title");
+const leftArrow = document.querySelector(".left_arrow");
+const rightArrow = document.querySelector(".right_arrow");
+const arrows = document.querySelectorAll(".arrow");
+
+let mouseDownLeft = false;
+let mouseDownRight = false;
+let mouseUpLeft = true;
+let mouseUpRight = true;
+let scrollInterval = null;
+
+const scroll = (direction) => {
+  if (direction === "left") {
+    slidingArea.scrollLeft -= 50;
+  } else {
+    slidingArea.scrollLeft += 50;
+  }
+};
+
+const scrollToLeft = () => {
+  mouseDownLeft = true;
+  mouseUpLeft = false;
+  if (mouseDownLeft && !mouseUpLeft) {
+    if (!scrollInterval) {
+      scrollInterval = setInterval(() => scroll("left"), 1);
+    }
+  }
+};
+
+const scrollToRight = () => {
+  mouseDownLeft = true;
+  mouseUpLeft = false;
+  if (mouseDownLeft && !mouseUpLeft) {
+    if (!scrollInterval) {
+      scrollInterval = setInterval(() => scroll("right"), 1);
+    }
+  }
+};
+
+const stopScroll = () => {
+  mouseDownLeft = false;
+  mouseUpLeft = true;
+  clearInterval(scrollInterval);
+  scrollInterval = null;
+};
+
+if (leftArrow) {
+  leftArrow.addEventListener("mousedown", scrollToLeft);
+  leftArrow.addEventListener("mouseup", stopScroll);
+  leftArrow.addEventListener("mouseout", stopScroll);
+  rightArrow.addEventListener("mousedown", scrollToRight);
+  rightArrow.addEventListener("mouseup", stopScroll);
+  rightArrow.addEventListener("mouseout", stopScroll);
+
+  //Disable arrows at each end of the scroll area
+  slidingArea.addEventListener("scroll", (e) => {
+    const distanceScrolled = e.target.scrollLeft;
+    const maxScrollArea = slidingArea.scrollWidth;
+    const startOfContainer = e.target.offsetWidth;
+    const endOfContainer = maxScrollArea - startOfContainer;
+    distanceScrolled >= endOfContainer
+      ? (rightArrow.disabled = true)
+      : (rightArrow.disabled = false);
+    distanceScrolled <= 0 ? (leftArrow.disabled = true) : (leftArrow.disabled = false);
+  });
+}

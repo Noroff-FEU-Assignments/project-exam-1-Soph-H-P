@@ -37,6 +37,31 @@
     width: 50vw;
     left: 25vw;
   }
+
+  footer ul {
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px auto;
+    border-top: var(--light-color) 1px solid;
+  }
+
+  .footer_link {
+    padding: 20px 40px;
+  }
+
+  .footer_link:not(#about-link)::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    right: 95%;
+    top: 45%;
+    background: var(--light-color);
+    position: absolute;
+  }
+
   /*--------------Home page----------------*/
   .found_a_bug_container {
     grid-template-areas:
@@ -118,21 +143,11 @@
   }
 
   footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "space social pages";
     justify-content: space-between;
   }
 
   .social_media_container {
     align-self: center;
-    grid-area: social;
-  }
-
-  footer ul {
-    grid-area: pages;
-    padding-right: 20px;
-    text-align: right;
   }
 
   .social_media_icon:hover {

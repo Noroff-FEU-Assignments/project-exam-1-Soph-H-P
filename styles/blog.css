@@ -13,7 +13,6 @@
 
 .category_filter,
 .category_filter_all {
-  padding: 10px;
   font-family: var(--heading-font);
   font-size: 1rem;
   border-radius: 10px;
