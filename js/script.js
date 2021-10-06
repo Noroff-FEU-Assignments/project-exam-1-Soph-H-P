@@ -4,10 +4,10 @@ const footer = document.querySelector("footer");
 
 const socialMediaContainer = `
     <div class="social_media_container">
-        <a tabindex=0 class="social_media_icon" href="https://www.facebook.com/" target=”_blank”><img src="../icons/facebook.svg" alt="facebook icon"></a>
-        <a class="social_media_icon" href="https://www.instagram.com/" target=”_blank”><img src="../icons/instagram.svg" alt="instagram icon"></a>
-        <a class="social_media_icon" href="https://www.snapchat.com/" target=”_blank”><img src="../icons/snapchat.svg" alt="snapchat icon"></a>
-        <a class="social_media_icon" href="https://www.twitter.com/" target=”_blank”><img src="../icons/twitter.svg" alt="twitter icon"></a>
+        <a tabindex=0 class="social_media_icon" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//portfolio-updates--where-bugs-unite.netlify.app/" target=”_blank”><img src="../icons/facebook.svg" alt="facebook icon"></a>
+        <a class="social_media_icon" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fportfolio-updates--where-bugs-unite.netlify.app%2F" target=”_blank”><img src="../icons/linkedin.svg" alt="linkedin icon"></a>
+        <a class="social_media_icon" href="https://pinterest.com/pin/create/button/?description=&media=&url=https%3A%2F%2Fportfolio-updates--where-bugs-unite.netlify.app%2F" target=”_blank”><img src="../icons/pinterest.svg" alt="pinterest icon"></a>
+        <a class="social_media_icon" href="https://twitter.com/intent/tweet?text=https%3A//portfolio-updates--where-bugs-unite.netlify.app/" target=”_blank”><img src="../icons/twitter.svg" alt="twitter icon"></a>
     </div>
 `;
 
@@ -310,3 +310,6 @@ if (leftArrow) {
     distanceScrolled <= 0 ? (leftArrow.disabled = true) : (leftArrow.disabled = false);
   });
 }
+
+
+console.log(window.location.href)

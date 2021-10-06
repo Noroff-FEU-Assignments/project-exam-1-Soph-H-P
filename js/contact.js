@@ -18,7 +18,9 @@ const handleContactFormSubmit = async (e) => {
       body,
     });
     response.ok
-      ? (form.reset(), (sendSuccess.innerHTML = "Message sent sit back and relax a reply could be with you shortly..."))
+      ? (form.reset(),
+        (sendSuccess.innerHTML =
+          "Message sent sit back and relax a reply could be with you shortly..."))
       : (sendSuccess.innerHTML = "Message cannot be sent at this time");
   } catch (error) {
     sendSuccess.innerHTML = "Messaging not possible at this time please try again later";
@@ -28,3 +30,8 @@ const handleContactFormSubmit = async (e) => {
 };
 
 contactForm.addEventListener("submit", handleContactFormSubmit);
+
+//Carousel-----------------
+const postsUrl = "https://soph-web-dev.eu/bug-blog/wp-json/wp/v2/posts?_embed&orderby=rand&per_page=8";
+
+renderCarousel(fetchPosts(postsUrl), "Something to read?");

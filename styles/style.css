@@ -423,7 +423,7 @@ footer ul {
 
 .post_preview {
   position: relative;
-  background-color: var(--light-color);
+  background-color: var(--color-1);
   min-width: 180px;
   margin: 5px;
   border-radius: 20px;
