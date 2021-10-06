@@ -311,4 +311,3 @@ if (leftArrow) {
   });
 }
 
-console.log(window.location.href);
