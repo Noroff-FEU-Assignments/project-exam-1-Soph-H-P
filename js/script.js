@@ -13,15 +13,15 @@ const socialMediaContainer = `
 
 const footerLinks = `
     <ul class="footer_links">
-        <a class="footer_link" id="about-link" href="about.html">
-            <li>About</li>
-        </a>
-        <a class="footer_link" id="blog-link" href="blog.html">
-            <li>Blog</li>
-        </a>
-        <a class="footer_link" id="contact-link" href="contact.html">
-            <li>Contact</li>
-        </a>
+      <li>
+        <a class="footer_link" id="about-link" href="about.html">About</a>
+      </li>
+      <li>
+        <a class="footer_link" id="blog-link" href="blog.html">Blog</a>
+      </li>
+      <li>
+        <a class="footer_link" id="contact-link" href="contact.html">Contact</a>
+      </li>
     </ul>
 `;
 
