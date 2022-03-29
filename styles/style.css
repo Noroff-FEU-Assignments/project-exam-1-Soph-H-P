@@ -10,12 +10,6 @@ body {
   margin: 0;
 }
 
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0px 10px;
-}
-
 h1,
 h2 {
   font-family: var(--heading-font);
@@ -64,6 +58,12 @@ textarea {
   box-shadow: var(--shadow);
 }
 
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px 10px;
+}
+
 .search_input_overlay .input_container {
   display: flex;
   flex-direction: column;
@@ -71,6 +71,10 @@ textarea {
 
 nav > ul {
   padding: 0px;
+}
+
+nav > ul li {
+  list-style-type: none;
 }
 
 button {
@@ -110,7 +114,6 @@ button {
 }
 
 .hero {
-  position: relative;
   background-color: var(--dark-color);
   color: var(--light-color);
   text-align: center;
@@ -119,10 +122,8 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin: 0px -50vw -80px -50vw;
+  width: 100%;
+  margin-bottom: -80px;
 }
 
 .subheading {
@@ -407,7 +408,7 @@ footer ul {
   box-shadow: var(--shadow);
   background: var(--light-color);
   border-radius: 30px;
-  padding: 20px;
+  padding: 20px 0px;
   margin: 0 auto 20px auto;
   position: relative;
   max-width: 1200px;
@@ -549,7 +550,7 @@ footer ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-flow: column;
-  overflow: scroll;
+  overflow: hidden;
   scroll-behavior: smooth;
   padding-bottom: 20px;
   margin-bottom: -20px;

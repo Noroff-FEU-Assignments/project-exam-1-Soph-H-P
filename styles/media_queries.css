@@ -154,6 +154,11 @@
     filter: brightness(0.6) sepia(1) hue-rotate(170deg) saturate(6);
   }
 
+  .desktop_nav {
+    display: flex;
+    align-items: center;
+  }
+
   .desktop_nav ul {
     display: flex;
     padding: 5px;
@@ -175,13 +180,13 @@
     filter: brightness(5.2) sepia(1) hue-rotate(170deg) saturate(6);
   }
 
-  .sliding_area {
-    overflow: hidden;
+  .desktop_nav ul li {
+    list-style-type: none;
   }
 
   .header_link_desktop {
     display: block;
-    list-style-type: none;
+
     color: var(--light-color);
     font-family: var(--heading-font);
     font-size: 1.5rem;
@@ -193,7 +198,6 @@
   }
 
   .hero {
-    position: relative;
     padding-top: 100px;
   }
 

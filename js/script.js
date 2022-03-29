@@ -13,15 +13,15 @@ const socialMediaContainer = `
 
 const footerLinks = `
     <ul class="footer_links">
-        <a class="footer_link" id="about-link" href="about.html">
-            <li>About</li>
-        </a>
-        <a class="footer_link" id="blog-link" href="blog.html">
-            <li>Blog</li>
-        </a>
-        <a class="footer_link" id="contact-link" href="contact.html">
-            <li>Contact</li>
-        </a>
+      <li>
+        <a class="footer_link" id="about-link" href="about.html">About</a>
+      </li>
+      <li>
+        <a class="footer_link" id="blog-link" href="blog.html">Blog</a>
+      </li>
+      <li>
+        <a class="footer_link" id="contact-link" href="contact.html">Contact</a>
+      </li>
     </ul>
 `;
 
@@ -43,20 +43,21 @@ const logo = `
 const headerNavDesktop = `
     <nav class="desktop_nav">
         <ul>
-            <a  class="header_link_desktop home" href="index.html">
-                <li tabindex="0">Home</li>
-            </a> 
-            <a class="header_link_desktop about" href="about.html">
-                <li tabindex="0">About</li>
-            </a>
-            <a class="header_link_desktop blog" href="blog.html">
-                <li tabindex="0">Blog</li>
-            </a>
-            <a class="header_link_desktop contact" href="contact.html">
-                <li tabindex="0">Contact</li>
-            </a>
-            <div class="search_container">
-            <button class="search_button" aria-label="search" ></button>
+          <li tabindex="0">
+            <a  class="header_link_desktop home" href="index.html">Home</a>
+          </li>
+          <li tabindex="0">
+            <a class="header_link_desktop about" href="about.html">About</a>
+          </li>
+          <li tabindex="0">
+            <a class="header_link_desktop blog" href="blog.html">Blog</a>
+          </li>
+          <li tabindex="0">
+            <a class="header_link_desktop contact" href="contact.html">Contact</a>
+          </li>  
+        </ul>
+          <div class="search_container">
+          <button class="search_button" aria-label="search" ></button>
             
             <div class="search_input_overlay overlay hide">
                 <div class="input_container">
@@ -65,7 +66,7 @@ const headerNavDesktop = `
                 </div> 
           </div>
         </div>
-        </ul>
+        
     </nav>
 `;
 
@@ -78,18 +79,19 @@ const headerNavMobile = `
     </button>
     <nav class="mobile_nav menu_overlay">
         <ul>
-            <a class="header_link_mobile menu_overlay home" href="index.html">
-            <li tabindex="0">Home</li>
-            </a>
-            <a class="header_link_mobile menu_overlay about" href="about.html">
-            <li tabindex="0">About</li>
-            </a>
-            <a class="header_link_mobile menu_overlay blog" href="blog.html">
-            <li tabindex="0">Blog</li>
-            </a>
-            <a class="header_link_mobile menu_overlay contact" href="contact.html">
-            <li tabindex="0">Contact</li>
-            </a>
+            <li tabindex="0">
+              <a class="header_link_mobile menu_overlay home" href="index.html">Home</a>
+            </li>
+            <li tabindex="0">
+              <a class="header_link_mobile menu_overlay about" href="about.html">About</a>
+            </li>
+            <li tabindex="0">
+              <a class="header_link_mobile menu_overlay blog" href="blog.html">Blog</a>
+            </li>
+            <li tabindex="0">
+              <a class="header_link_mobile menu_overlay contact" href="contact.html">Contact</a>
+            </li>
+            
         </ul>
         <div class="search_container menu_overlay">
             <button class="search_button" aria-label="search"></button>
@@ -249,54 +251,26 @@ const leftArrow = document.querySelector(".left_arrow");
 const rightArrow = document.querySelector(".right_arrow");
 const arrows = document.querySelectorAll(".arrow");
 
-let mouseDownLeft = false;
-let mouseDownRight = false;
-let mouseUpLeft = true;
-let mouseUpRight = true;
-let scrollInterval = null;
-
-const scroll = (direction) => {
-  if (direction === "left") {
-    slidingArea.scrollLeft -= 50;
-  } else {
-    slidingArea.scrollLeft += 50;
-  }
+const getScrollDistance = () => {
+  const previewWidth = viewportWidth < 800 ? 190 : 260;
+  const scrollAmount = slidingArea.offsetWidth % previewWidth;
+  return slidingArea.offsetWidth - scrollAmount;
 };
 
-const scrollToLeft = () => {
-  mouseDownLeft = true;
-  mouseUpLeft = false;
-  if (mouseDownLeft && !mouseUpLeft) {
-    if (!scrollInterval) {
-      scrollInterval = setInterval(() => scroll("left"), 1);
-    }
-  }
-};
-
-const scrollToRight = () => {
-  mouseDownLeft = true;
-  mouseUpLeft = false;
-  if (mouseDownLeft && !mouseUpLeft) {
-    if (!scrollInterval) {
-      scrollInterval = setInterval(() => scroll("right"), 1);
-    }
-  }
-};
-
-const stopScroll = () => {
-  mouseDownLeft = false;
-  mouseUpLeft = true;
-  clearInterval(scrollInterval);
-  scrollInterval = null;
+const scrollTo = (direction) => {
+  const scrollDistance = getScrollDistance();
+  direction === "left"
+    ? (slidingArea.scrollLeft -= scrollDistance)
+    : (slidingArea.scrollLeft += scrollDistance);
 };
 
 if (leftArrow) {
-  leftArrow.addEventListener("mousedown", scrollToLeft);
-  leftArrow.addEventListener("mouseup", stopScroll);
-  leftArrow.addEventListener("mouseout", stopScroll);
-  rightArrow.addEventListener("mousedown", scrollToRight);
-  rightArrow.addEventListener("mouseup", stopScroll);
-  rightArrow.addEventListener("mouseout", stopScroll);
+  leftArrow.addEventListener("click", () => {
+    scrollTo("left");
+  });
+  rightArrow.addEventListener("click", () => {
+    scrollTo("right");
+  });
 
   //Disable arrows at each end of the scroll area
   slidingArea.addEventListener("scroll", (e) => {
@@ -310,4 +284,3 @@ if (leftArrow) {
     distanceScrolled <= 0 ? (leftArrow.disabled = true) : (leftArrow.disabled = false);
   });
 }
-

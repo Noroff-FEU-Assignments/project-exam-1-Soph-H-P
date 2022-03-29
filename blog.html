@@ -16,22 +16,7 @@
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/blog.css" />
     <link rel="stylesheet" href="styles/media_queries.css" />
-    <!-- Hotjar Tracking Code for https://where-bugs-unite.netlify.app/ -->
-    <script>
-      (function (h, o, t, j, a, r) {
-        h.hj =
-          h.hj ||
-          function () {
-            (h.hj.q = h.hj.q || []).push(arguments);
-          };
-        h._hjSettings = { hjid: 2605681, hjsv: 6 };
-        a = o.getElementsByTagName("head")[0];
-        r = o.createElement("script");
-        r.async = 1;
-        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-        a.appendChild(r);
-      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
-    </script>
+
     <title>Blog | Bug Blog</title>
   </head>
 
@@ -55,65 +40,71 @@
           <span class="title_bug bug_three"></span>
         </div>
       </div>
-      <div class="category_filters category_filters_container">
-        <button class="category_filter_all" id="all-categories" aria-label="filter all categories">
-          All categories
-        </button>
-        <button
-          class="category_filter"
-          id="bugs-with-bugs"
-          data-category="7"
-          aria-label="filter bugs with bugs category"
-        >
-          Bugs with bugs
-        </button>
-        <button
-          class="category_filter"
-          id="bugs-that-are-code"
-          data-category="12"
-          aria-label="filter bugs that are code category"
-        >
-          Bugs that are code
-        </button>
-        <button
-          class="category_filter"
-          id="types-of-bug"
-          data-category="17"
-          aria-label="filter types of bug category"
-        >
-          Types of bug
-        </button>
-        <button
-          class="category_filter"
-          id="bug-history"
-          data-category="2"
-          aria-label="filter bug history category"
-        >
-          Bug history
-        </button>
-      </div>
-      <div class="sort_container">
-        <label for="sort-by">Sort by:</label>
-        <select name="sort_by" id="sort-by">
-          <option value="latest" selected>Latest</option>
-          <option value="oldest">Oldest</option>
-          <option value="alphabetical">A - Z</option>
-        </select>
-      </div>
-
-      <div class="posts_container">
-        <div class="loading_featured_image loader_container">
-          <p>Loading...</p>
-          <img class="lil_bug loading" src="icons/bug.svg" alt="small white bug" />
-          <img
-            class="magnifying_glass loading"
-            src="icons/search.svg"
-            alt="small white magnifying glass"
-          />
+      <div class="page-wrapper">
+        <div class="category_filters category_filters_container">
+          <button
+            class="category_filter_all"
+            id="all-categories"
+            aria-label="filter all categories"
+          >
+            All categories
+          </button>
+          <button
+            class="category_filter"
+            id="bugs-with-bugs"
+            data-category="7"
+            aria-label="filter bugs with bugs category"
+          >
+            Bugs with bugs
+          </button>
+          <button
+            class="category_filter"
+            id="bugs-that-are-code"
+            data-category="12"
+            aria-label="filter bugs that are code category"
+          >
+            Bugs that are code
+          </button>
+          <button
+            class="category_filter"
+            id="types-of-bug"
+            data-category="17"
+            aria-label="filter types of bug category"
+          >
+            Types of bug
+          </button>
+          <button
+            class="category_filter"
+            id="bug-history"
+            data-category="2"
+            aria-label="filter bug history category"
+          >
+            Bug history
+          </button>
         </div>
-      </div>
-      <div class="view_more_container">
-        <button class="view_more_button cta" aria-label="view more posts">View More</button>
+        <div class="sort_container">
+          <label for="sort-by">Sort by:</label>
+          <select name="sort_by" id="sort-by">
+            <option value="latest" selected>Latest</option>
+            <option value="oldest">Oldest</option>
+            <option value="alphabetical">A - Z</option>
+          </select>
+        </div>
+
+        <div class="posts_container">
+          <div class="loading_featured_image loader_container">
+            <p>Loading...</p>
+            <img class="lil_bug loading" src="icons/bug.svg" alt="small white bug" />
+            <img
+              class="magnifying_glass loading"
+              src="icons/search.svg"
+              alt="small white magnifying glass"
+            />
+          </div>
+        </div>
+        <div class="view_more_container">
+          <button class="view_more_button cta" aria-label="view more posts">View More</button>
+        </div>
       </div>
     </main>
     <footer></footer>
